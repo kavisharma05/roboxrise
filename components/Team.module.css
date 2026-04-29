@@ -13,6 +13,10 @@
     display: none;
 }
 
+.isTablet {
+    /* Marker class used alongside `.topComponent` for breakpoint-specific title visibility. */
+}
+
 .topComponent.isTablet {
     display: none;
 }
