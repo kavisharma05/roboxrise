@@ -1,0 +1,821 @@
+/* ============================================
+   RoboRise - Global Styles
+   Pixel-perfect recreation of Momentus template
+   ============================================ */
+
+/* Lenis Smooth Scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* CSS Reset & Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fluid Responsive Typography - EXACT from reference */
+html {
+  font-size: calc(0.5991091314031181rem + 0.4454342984409799vw);
+}
+
+@media screen and (max-width: 1440px) {
+  html {
+    font-size: calc(0.5991091314031181rem + 0.4454342984409799vw);
+  }
+}
+
+@media screen and (max-width: 991px) {
+  html {
+    font-size: calc(0.44698660714285715rem + 0.8928571428571428vw);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  html {
+    font-size: calc(0.6671006944444444rem + 0.6944444444444444vw);
+  }
+}
+
+@media screen and (max-width: 479px) {
+  html {
+    font-size: calc(0.7494769874476988rem + 0.8368200836820083vw);
+  }
+}
+
+/* Font Smoothing */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  color: #1a1a1a;
+  background-color: #f5f5f5;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* First-visit intro: hide main UI until RoboxRiseIntroLoader finishes (see layout + sessionStorage key). */
+html.intro-loader-active {
+  overflow: hidden;
+  background-color: #0a0a0a;
+}
+
+html.intro-loader-active body {
+  background-color: #0a0a0a;
+}
+
+body .page-wrapper.is-main {
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html.intro-loader-active body .page-wrapper.is-main {
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ============================================
+   CSS Custom Properties (Design Tokens)
+   ============================================ */
+:root {
+  /* PDP minimal tokens */
+  --pdp-accent: #ff6b35;
+  --pdp-accent-soft: rgba(255, 107, 53, 0.2);
+  --pdp-coral: #ff6b57;
+  --pdp-text: #0f172a;
+  --pdp-text-secondary: #475569;
+  --pdp-text-muted: #94a3b8;
+  --pdp-surface: #fafafa;
+  --pdp-background: #ffffff;
+  --pdp-border: #e9ecef;
+  --pdp-border-subtle: #f1f3f5;
+
+  /* Colors - Light theme matching reference */
+  --color-bg-primary: #f5f5f5;
+  --color-bg-secondary: #ffffff;
+  --color-bg-card: #ffffff;
+  --color-bg-accent: #d4e4d1;
+
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: rgba(0, 0, 0, 0.6);
+  --color-text-alternate: rgba(0, 0, 0, 0.6);
+  --color-text-tertiary: rgba(0, 0, 0, 0.4);
+
+  --color-border: rgba(0, 0, 0, 0.1);
+  --color-border-light: rgba(0, 0, 0, 0.15);
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
+  --spacing-3xl: 5rem;
+  --spacing-4xl: 7rem;
+
+  /* Border Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* Container */
+  --container-max: 80rem;
+  /* Font Sizes - Responsive Variables */
+  --text-7xl: 4.5rem;
+  --text-6xl: 3.5rem;
+  --text-5xl: 2.5rem;
+  --text-4xl: 2rem;
+  --text-3xl: 1.75rem;
+  --text-2xl: 1.375rem;
+  --text-xl: 1.25rem;
+  --text-lg: 1.125rem;
+  --text-base: 1rem;
+  --text-sm: 0.875rem;
+  --text-xs: 0.75rem;
+}
+
+@media screen and (max-width: 991px) {
+  :root {
+    --padding-global: 1.5rem;
+
+    /* Tablet Typography Updates */
+    --text-7xl: 3rem;
+    --text-6xl: 2.5rem;
+    --text-5xl: 2rem;
+    --text-4xl: 1.75rem;
+
+    /* Tablet Spacing Updates */
+    --spacing-3xl: 4rem;
+    --spacing-4xl: 5rem;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  :root {
+    --padding-global: 1.25rem;
+
+    /* Mobile Typography Updates */
+    --text-7xl: 2.25rem;
+    --text-6xl: 2rem;
+    --text-5xl: 1.5rem;
+
+    /* Mobile Spacing Updates */
+    --spacing-2xl: 3rem;
+    --spacing-3xl: 3rem;
+    --spacing-4xl: 3.5rem;
+  }
+}
+
+/* ============================================
+   Typography Classes - EXACT from reference
+   ============================================ */
+.text-7xl {
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+  font-size: var(--text-7xl);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.text-6xl {
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+  font-size: var(--text-6xl);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.text-5xl {
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+  font-size: var(--text-5xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.text-4xl {
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+  font-size: var(--text-4xl);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.text-3xl {
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+  font-size: var(--text-3xl);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.text-2xl {
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.text-xl {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-size: var(--text-xl);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.text-lg {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-size: var(--text-lg);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.text-base {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-size: var(--text-base);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.text-sm {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-size: var(--text-sm);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.text-xs {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-size: var(--text-xs);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Text Utilities */
+.text-color-secondary {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.text-color-alternate {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.text-color-tertiary {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+/* Dark context - override text colors for dark backgrounds */
+.dark-context .text-color-secondary,
+.dark-context .text-color-alternate {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.dark-context .text-color-tertiary {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.text-weight-medium {
+  font-weight: 500;
+}
+
+.text-weight-bold {
+  font-weight: 700;
+}
+
+.text-tag {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.dark-context .text-tag {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* App Display Text - Updated to use consistent CSS variables */
+.app-display {
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+  font-size: var(--text-5xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+}
+
+/* ============================================
+   Layout Classes
+   ============================================ */
+.page-wrapper {
+  overflow: hidden;
+}
+
+.page-wrapper.is-main {
+  background-color: var(--color-bg-primary);
+}
+
+.main-wrapper {
+  position: relative;
+}
+
+.padding-global {
+  padding-left: var(--padding-global);
+  padding-right: var(--padding-global);
+}
+
+.padding-global.is-navbar {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.padding-section-large {
+  padding-top: var(--spacing-4xl);
+  padding-bottom: var(--spacing-4xl);
+}
+
+.padding-section-medium {
+  padding-top: var(--spacing-3xl);
+  padding-bottom: var(--spacing-3xl);
+}
+
+.padding-section-small {
+  padding-top: var(--spacing-2xl);
+  padding-bottom: var(--spacing-2xl);
+}
+
+.padding-section-mini {
+  padding-top: var(--spacing-xl);
+  padding-bottom: var(--spacing-xl);
+}
+
+.container-large {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-large.is-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.z-index {
+  position: relative;
+  z-index: 1;
+}
+
+.z-index-2 {
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================================
+   Button Styles - EXACT from reference
+   ============================================ */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 1.5rem;
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, #ff6b35 0%, #ffa366 100%);
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  white-space: nowrap;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 107, 53, 0.35);
+}
+
+.button.is-secondary {
+  background: #ffffff;
+  color: #ff6b35;
+  border: 1px solid rgba(255, 107, 53, 0.25);
+  box-shadow: none;
+}
+
+.button.is-secondary:hover {
+  background: rgba(255, 107, 53, 0.04);
+  border-color: rgba(255, 107, 53, 0.45);
+  box-shadow: none;
+  transform: translateY(-1px);
+}
+
+.button.is-nav {
+  padding: 0.75rem 1.25rem;
+  font-size: 0.8125rem;
+}
+
+.button.is-sec-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  background-color: transparent;
+  color: #1a1a1a;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.button.is-sec-small:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* ============================================
+   Form Styles
+   ============================================ */
+.form_component {
+  width: 100%;
+}
+
+.form_form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form_form.is-footer {
+  flex-direction: row;
+  gap: 0.75rem;
+}
+
+@media screen and (max-width: 767px) {
+  .form_form.is-footer {
+    flex-direction: column;
+  }
+}
+
+.form_field-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  flex: 1;
+}
+
+.form_label {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+
+.form_input {
+  padding: 0.875rem 1rem;
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-size: 0.9375rem;
+  color: #1a1a1a;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.form_input::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+.form_input:focus {
+  border-color: rgba(255, 107, 53, 0.4);
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.08);
+}
+
+.form_input.is-text-area {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+.form_input.is-sec {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* Dark context form overrides */
+.dark-context .form_label {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.dark-context .form_input {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.dark-context .form_input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.dark-context .form_input.is-sec {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.form_message-success,
+.form_message-error {
+  padding: 0.875rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.form_message-success {
+  background-color: rgba(255, 107, 53, 0.08);
+  color: #ff6b35;
+}
+
+.form_message-error {
+  background-color: rgba(255, 100, 100, 0.15);
+  color: #ff6464;
+}
+
+/* ============================================
+   Icon Classes
+   ============================================ */
+.icon-1x1-medium {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
+
+.icon-wrap {
+  display: flex;
+  overflow: hidden;
+  width: 1.5rem;
+}
+
+.icon-wrap_medium {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  background-color: rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-sm);
+}
+
+.icon-wrap_medium.is-green {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+/* Orange icon wrapper for Services section - matching hero orange theme */
+.icon-wrap_medium.is-orange {
+  background-color: rgba(255, 107, 53, 0.1);
+  color: #ff6b35;
+}
+
+/* Orange icon wrapper on dark background */
+.icon-wrap_medium.is-orange-dark {
+  background-color: rgba(255, 107, 53, 0.15);
+  color: #ffa366;
+}
+
+/* ============================================
+   Image Classes
+   ============================================ */
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image.is-main {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image.is-40 {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+
+/* ============================================
+   Clover Decoration
+   ============================================ */
+.clover {
+  position: absolute;
+  width: 6rem;
+  height: 6rem;
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.clover.is-right {
+  top: 1.25rem;
+  right: 1.25rem;
+}
+
+.clover.is-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8rem;
+  height: 8rem;
+}
+
+/* ============================================
+   Responsive Utilities
+   ============================================ */
+.hide {
+  display: none !important;
+}
+
+.hide-tablet {
+  display: block;
+}
+
+.show-tablet {
+  display: none;
+}
+
+.hide-mobile-landscape {
+  display: block;
+}
+
+.hide-mobile-portrait {
+  display: block;
+}
+
+@media screen and (max-width: 991px) {
+  .hide-tablet {
+    display: none !important;
+  }
+
+  .show-tablet {
+    display: block !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .hide-mobile-landscape {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .hide-mobile-portrait {
+    display: none !important;
+  }
+}
+
+/* ============================================
+   Scroll Animation Base
+   ============================================ */
+.scroll-into-view {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-into-view.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   Link Styles
+   ============================================ */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.link {
+  display: block;
+  padding: 0.25rem 0;
+  color: #1a1a1a;
+  transition: opacity var(--transition-fast);
+}
+
+.link:hover {
+  opacity: 0.7;
+}
+
+.link.is-second {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.link.is-second:hover {
+  color: #1a1a1a;
+}
+
+/* Dark context link overrides */
+.dark-context .link {
+  color: #ffffff;
+}
+
+.dark-context .link.is-second {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.dark-context .link.is-second:hover {
+  color: #ffffff;
+}
+
+/* Link View Animation */
+.link-view {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  overflow: hidden;
+}
+
+.link-view .icon-wrap {
+  transition: transform var(--transition-medium);
+}
+
+.link-view:hover .icon-wrap {
+  transform: translateX(-100%);
+}
+
+/* ============================================
+   Social Link Styles
+   ============================================ */
+.social_link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.social_link:hover {
+  color: var(--color-text-primary);
+}
+
+.social_link .icon-1x1-medium {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+/* ============================================
+   Stats Styles
+   ============================================ */
+.stats_number {
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.starts_sub-number {
+  font-size: 0.5em;
+  vertical-align: super;
+  color: var(--color-text-secondary);
+  margin-left: 0.125em;
+}
+
+@media screen and (max-width: 991px) {
+  .stats_number {
+    font-size: 2.5rem;
+  }
+}

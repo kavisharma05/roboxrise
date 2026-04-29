@@ -1,0 +1,31 @@
+import { redirect } from "next/navigation";
+import { createClient } from "@/lib/supabase/server";
+import AdminShell from "@/components/admin/AdminShell";
+
+export const metadata = {
+  title: "Admin — RoboRise",
+  description: "RoboRise admin dashboard",
+};
+
+export default async function AdminLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const supabase = createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) redirect("/login?callbackUrl=/admin");
+
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("role")
+    .eq("id", user.id)
+    .single();
+
+  if (profile?.role !== "admin") redirect("/");
+
+  return <AdminShell email={user.email ?? ""}>{children}</AdminShell>;
+}

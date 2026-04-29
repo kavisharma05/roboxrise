@@ -1,0 +1,113 @@
+/* ── Loading skeleton for Product Detail Page ── */
+
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04) 25%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.04) 75%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+  border-radius: 6px;
+}
+
+/* Nav placeholder */
+.navPlaceholder {
+  height: 72px;
+  width: 100%;
+}
+
+/* Layout */
+.pdpSection {
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+.twoColumn {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.leftCol,
+.rightCol {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Image gallery skeletons */
+.mainImage {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+}
+
+.thumbRow {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.thumb {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+/* Text lines — width & height are set inline */
+.line {
+  min-height: 14px;
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  margin: 24px 0;
+}
+
+/* Trust row */
+.trustRow {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.trustBadge {
+  flex: 1;
+  height: 56px;
+  border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .twoColumn {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .thumb {
+    width: 52px;
+    height: 52px;
+  }
+
+  .trustRow {
+    flex-wrap: wrap;
+  }
+
+  .trustBadge {
+    flex: 1 1 calc(50% - 6px);
+  }
+}
