@@ -1,0 +1,324 @@
+/* ─── Hero ─── */
+.heroSection {
+  position: relative;
+  padding: 10rem 2rem 5rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, #1a1a1a 0%, #2d2d2d 100%);
+  z-index: 0;
+}
+
+.heroBg::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 50rem;
+  height: 50rem;
+  transform: translate(-50%, 60%);
+  background: radial-gradient(circle, rgba(255, 107, 53, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.backLink {
+  display: inline-block;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  margin-bottom: 1rem;
+  transition: color 0.2s ease;
+}
+
+.backLink:hover {
+  color: #ff6b35;
+}
+
+.heroHeading {
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: var(--text-6xl);
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.heroDescription {
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+}
+
+/* ─── Detail Section ─── */
+.detailSection {
+  background-color: var(--color-bg-primary);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 22rem;
+  gap: 2rem;
+  align-items: start;
+}
+
+.mainColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.sideColumn {
+  position: sticky;
+  top: 6rem;
+}
+
+/* ─── Cards ─── */
+.card {
+  background: #ffffff;
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border);
+}
+
+.cardTitle {
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+}
+
+/* ─── Status row ─── */
+.statusRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.status_pending {
+  background: rgba(245, 158, 11, 0.1);
+  color: #b45309;
+}
+
+.status_paid {
+  background: rgba(22, 163, 74, 0.1);
+  color: #15803d;
+}
+
+.status_failed {
+  background: rgba(220, 38, 38, 0.08);
+  color: #dc2626;
+}
+
+.status_cancelled {
+  background: rgba(107, 114, 128, 0.1);
+  color: #6b7280;
+}
+
+.status_refunded {
+  background: rgba(59, 130, 246, 0.1);
+  color: #2563eb;
+}
+
+.paidDate {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+/* ─── Meta rows ─── */
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.metaLabel {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.metaValue {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  word-break: break-all;
+}
+
+/* ─── Items ─── */
+.itemsList {
+  display: flex;
+  flex-direction: column;
+}
+
+.itemRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.itemRow:last-child {
+  border-bottom: none;
+}
+
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.itemName {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.itemMeta {
+  font-size: 0.75rem;
+  color: var(--color-text-tertiary);
+}
+
+.itemPrice {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+}
+
+/* ─── Address ─── */
+.addressText {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* ─── Totals card ─── */
+.totalsCard {
+  background: #ffffff;
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border);
+}
+
+.totalsTitle {
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+}
+
+.totalsLines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.totalsLine {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.totalsDivider {
+  height: 1px;
+  background: var(--color-border);
+  margin: 1rem 0;
+}
+
+.totalsTotal {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.totalsContact {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* ============================================
+   Responsive: Tablet (≤991px)
+   ============================================ */
+@media screen and (max-width: 991px) {
+  .heroSection {
+    padding: 8rem 1.5rem 3.5rem;
+  }
+
+  .heroHeading {
+    font-size: var(--text-5xl);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sideColumn {
+    position: static;
+  }
+}
+
+/* ============================================
+   Responsive: Mobile (≤479px)
+   ============================================ */
+@media screen and (max-width: 479px) {
+  .heroSection {
+    padding: 6.5rem 1.25rem 2.5rem;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+
+  .totalsCard {
+    padding: 1.25rem;
+  }
+
+  .statusRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .itemRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

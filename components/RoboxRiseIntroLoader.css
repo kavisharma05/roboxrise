@@ -1,0 +1,457 @@
+/* RoboxRise first-visit intro loader — generated from roboxriseloadinganimation.html */
+.roboxrise-intro-loader,
+.roboxrise-intro-loader *,
+.roboxrise-intro-loader *::before,
+.roboxrise-intro-loader *::after {
+  box-sizing: border-box;
+}
+
+.roboxrise-intro-loader {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0a0a0a;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity;
+  }
+  .roboxrise-intro-loader.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .roboxrise-intro-loader svg {
+    width: min(520px, 88vw);
+    height: auto;
+    display: block;
+    overflow: visible;
+  }
+
+  .roboxrise-intro-loader #loader-group,
+  .roboxrise-intro-loader #glow-group,
+  .roboxrise-intro-loader #sweep-layer { will-change: transform, opacity; }
+
+  /* ─── Main strokes ─── */
+  .roboxrise-intro-loader .lp {
+    fill: #ffffff;
+    fill-opacity: 0;
+    stroke: url(#strokeGrad);
+    stroke-width: 0.32;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-opacity: 0;           /* start invisible — keyframes control */
+    animation-duration: 5.8s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+  }
+
+  /* ─── Glow strokes ─── */
+  .roboxrise-intro-loader .lp-glow {
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 1.0;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0;
+    animation-duration: 5.8s;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     KEYFRAMES — 5.8s cycle
+
+     DOT FIX: Every stroke animation now includes stroke-opacity.
+       • stroke-opacity: 0  during blank/pre-draw/post-erase phases
+       • stroke-opacity: 1  ramps in at draw start, ramps out at erase end
+       This guarantees zero visible cap remnants at any point.
+
+     SMOOTHNESS: Runway keyframes on draw-in preserved.
+     Erase overshoot REMOVED (it caused trailing-dot flash).
+     Erase uses clean linear-out with stroke-opacity fade at tail.
+
+     stroke-dasharray uses "L (L+2)" pattern so the gap exceeds
+     the dash, preventing cap bleed at offset boundaries.
+     ═══════════════════════════════════════════════════════════════════════ */
+
+  /* ─── P1  L=204.59 ─── */
+  @keyframes lp1s {
+    0%,0.5%     { stroke-dashoffset: 204.59; stroke-opacity: 0; }
+    1%          { stroke-opacity: 1; }
+    1.5%        { stroke-dashoffset: 200.00; }
+    12%         { stroke-dashoffset: -1.2; }
+    13.5%       { stroke-dashoffset: 0; }
+    54%         { stroke-dashoffset: 0; }
+    67%         { stroke-dashoffset: -204.59; stroke-opacity: 1; }
+    67.5%       { stroke-opacity: 0; }
+    67.51%,100% { stroke-dashoffset: -204.59; stroke-opacity: 0; }
+  }
+  @keyframes lp1f {
+    0%,6%     { fill-opacity: 0; }
+    9%        { fill-opacity: 0.15; }
+    12%       { fill-opacity: 0.5; }
+    16%       { fill-opacity: 0.9; }
+    19%       { fill-opacity: 1; }
+    52%       { fill-opacity: 1; }
+    53.5%     { fill-opacity: 0.82; }
+    55%       { fill-opacity: 1; }
+    58%       { fill-opacity: 0.9; }
+    61%       { fill-opacity: 0.5; }
+    64%       { fill-opacity: 0.15; }
+    66%       { fill-opacity: 0; }
+    100%      { fill-opacity: 0; }
+  }
+  @keyframes lg1 {
+    0%        { opacity: 0; stroke-dashoffset: 204.59; }
+    1%        { opacity: 0.3; stroke-dashoffset: 201; }
+    6%        { opacity: 0.65; }
+    12%       { stroke-dashoffset: 0; opacity: 0.45; }
+    20%       { opacity: 0; }
+    52%       { opacity: 0; stroke-dashoffset: 0; }
+    55%       { opacity: 0.5; }
+    67%       { stroke-dashoffset: -204.59; opacity: 0; }
+    100%      { opacity: 0; }
+  }
+
+  /* ─── P2  L=111.11 ─── */
+  @keyframes lp2s {
+    0%,7.5%     { stroke-dashoffset: 111.11; stroke-opacity: 0; }
+    8%          { stroke-opacity: 1; }
+    9%          { stroke-dashoffset: 108.5; }
+    24%         { stroke-dashoffset: -0.8; }
+    25.5%       { stroke-dashoffset: 0; }
+    55%         { stroke-dashoffset: 0; }
+    68%         { stroke-dashoffset: -111.11; stroke-opacity: 1; }
+    68.5%       { stroke-opacity: 0; }
+    68.51%,100% { stroke-dashoffset: -111.11; stroke-opacity: 0; }
+  }
+  @keyframes lp2f {
+    0%,18%    { fill-opacity: 0; }
+    21%       { fill-opacity: 0.15; }
+    24%       { fill-opacity: 0.5; }
+    27%       { fill-opacity: 0.9; }
+    30%       { fill-opacity: 1; }
+    53%       { fill-opacity: 1; }
+    54.5%     { fill-opacity: 0.82; }
+    56%       { fill-opacity: 1; }
+    59%       { fill-opacity: 0.9; }
+    62%       { fill-opacity: 0.5; }
+    65%       { fill-opacity: 0.15; }
+    67%       { fill-opacity: 0; }
+    100%      { fill-opacity: 0; }
+  }
+  @keyframes lg2 {
+    0%,7.5%   { opacity: 0; stroke-dashoffset: 111.11; }
+    9%        { opacity: 0.3; stroke-dashoffset: 108.5; }
+    15%       { opacity: 0.65; }
+    24%       { stroke-dashoffset: 0; opacity: 0.45; }
+    31%       { opacity: 0; }
+    53%       { opacity: 0; stroke-dashoffset: 0; }
+    56%       { opacity: 0.5; }
+    68%       { stroke-dashoffset: -111.11; opacity: 0; }
+    100%      { opacity: 0; }
+  }
+
+  /* ─── P3  L=100.78 ─── */
+  @keyframes lp3s {
+    0%,14%      { stroke-dashoffset: 100.78; stroke-opacity: 0; }
+    14.5%       { stroke-opacity: 1; }
+    15.5%       { stroke-dashoffset: 98.5; }
+    30%         { stroke-dashoffset: -0.7; }
+    31.5%       { stroke-dashoffset: 0; }
+    56%         { stroke-dashoffset: 0; }
+    69%         { stroke-dashoffset: -100.78; stroke-opacity: 1; }
+    69.5%       { stroke-opacity: 0; }
+    69.51%,100% { stroke-dashoffset: -100.78; stroke-opacity: 0; }
+  }
+  @keyframes lp3f {
+    0%,24%    { fill-opacity: 0; }
+    27%       { fill-opacity: 0.15; }
+    30%       { fill-opacity: 0.5; }
+    33%       { fill-opacity: 0.9; }
+    36%       { fill-opacity: 1; }
+    54%       { fill-opacity: 1; }
+    55.5%     { fill-opacity: 0.82; }
+    57%       { fill-opacity: 1; }
+    60%       { fill-opacity: 0.9; }
+    63%       { fill-opacity: 0.5; }
+    66%       { fill-opacity: 0.15; }
+    68%       { fill-opacity: 0; }
+    100%      { fill-opacity: 0; }
+  }
+  @keyframes lg3 {
+    0%,14%    { opacity: 0; stroke-dashoffset: 100.78; }
+    15.5%     { opacity: 0.3; stroke-dashoffset: 98.5; }
+    21%       { opacity: 0.65; }
+    30%       { stroke-dashoffset: 0; opacity: 0.45; }
+    37%       { opacity: 0; }
+    54%       { opacity: 0; stroke-dashoffset: 0; }
+    57%       { opacity: 0.5; }
+    69%       { stroke-dashoffset: -100.78; opacity: 0; }
+    100%      { opacity: 0; }
+  }
+
+  /* ─── P4  L=80.70 ─── */
+  @keyframes lp4s {
+    0%,20%      { stroke-dashoffset: 80.70; stroke-opacity: 0; }
+    20.5%       { stroke-opacity: 1; }
+    21.5%       { stroke-dashoffset: 79.0; }
+    35%         { stroke-dashoffset: -0.5; }
+    36.2%       { stroke-dashoffset: 0; }
+    57%         { stroke-dashoffset: 0; }
+    70%         { stroke-dashoffset: -80.70; stroke-opacity: 1; }
+    70.5%       { stroke-opacity: 0; }
+    70.51%,100% { stroke-dashoffset: -80.70; stroke-opacity: 0; }
+  }
+  @keyframes lp4f {
+    0%,29%    { fill-opacity: 0; }
+    32%       { fill-opacity: 0.15; }
+    35%       { fill-opacity: 0.5; }
+    38%       { fill-opacity: 0.9; }
+    41%       { fill-opacity: 1; }
+    55%       { fill-opacity: 1; }
+    56.5%     { fill-opacity: 0.82; }
+    58%       { fill-opacity: 1; }
+    61%       { fill-opacity: 0.9; }
+    64%       { fill-opacity: 0.5; }
+    67%       { fill-opacity: 0.15; }
+    69%       { fill-opacity: 0; }
+    100%      { fill-opacity: 0; }
+  }
+  @keyframes lg4 {
+    0%,20%    { opacity: 0; stroke-dashoffset: 80.70; }
+    21.5%     { opacity: 0.3; stroke-dashoffset: 79.0; }
+    26%       { opacity: 0.65; }
+    35%       { stroke-dashoffset: 0; opacity: 0.45; }
+    42%       { opacity: 0; }
+    55%       { opacity: 0; stroke-dashoffset: 0; }
+    58%       { opacity: 0.5; }
+    70%       { stroke-dashoffset: -80.70; opacity: 0; }
+    100%      { opacity: 0; }
+  }
+
+  /* ─── P5  L=103.36 ─── */
+  @keyframes lp5s {
+    0%,25%      { stroke-dashoffset: 103.36; stroke-opacity: 0; }
+    25.5%       { stroke-opacity: 1; }
+    26.5%       { stroke-dashoffset: 101.0; }
+    40%         { stroke-dashoffset: -0.7; }
+    41.5%       { stroke-dashoffset: 0; }
+    58%         { stroke-dashoffset: 0; }
+    71%         { stroke-dashoffset: -103.36; stroke-opacity: 1; }
+    71.5%       { stroke-opacity: 0; }
+    71.51%,100% { stroke-dashoffset: -103.36; stroke-opacity: 0; }
+  }
+  @keyframes lp5f {
+    0%,34%    { fill-opacity: 0; }
+    37%       { fill-opacity: 0.15; }
+    40%       { fill-opacity: 0.5; }
+    43%       { fill-opacity: 0.9; }
+    46%       { fill-opacity: 1; }
+    56%       { fill-opacity: 1; }
+    57.5%     { fill-opacity: 0.82; }
+    59%       { fill-opacity: 1; }
+    62%       { fill-opacity: 0.9; }
+    65%       { fill-opacity: 0.5; }
+    68%       { fill-opacity: 0.15; }
+    70%       { fill-opacity: 0; }
+    100%      { fill-opacity: 0; }
+  }
+  @keyframes lg5 {
+    0%,25%    { opacity: 0; stroke-dashoffset: 103.36; }
+    26.5%     { opacity: 0.3; stroke-dashoffset: 101.0; }
+    31%       { opacity: 0.65; }
+    40%       { stroke-dashoffset: 0; opacity: 0.45; }
+    47%       { opacity: 0; }
+    56%       { opacity: 0; stroke-dashoffset: 0; }
+    59%       { opacity: 0.5; }
+    71%       { stroke-dashoffset: -103.36; opacity: 0; }
+    100%      { opacity: 0; }
+  }
+
+  /* ─── P6  L=41.48 ─── */
+  @keyframes lp6s {
+    0%,29%      { stroke-dashoffset: 41.48; stroke-opacity: 0; }
+    29.5%       { stroke-opacity: 1; }
+    30%         { stroke-dashoffset: 40.5; }
+    36%         { stroke-dashoffset: -0.3; }
+    37%         { stroke-dashoffset: 0; }
+    59%         { stroke-dashoffset: 0; }
+    71%         { stroke-dashoffset: -41.48; stroke-opacity: 1; }
+    71.5%       { stroke-opacity: 0; }
+    71.51%,100% { stroke-dashoffset: -41.48; stroke-opacity: 0; }
+  }
+  @keyframes lp6f {
+    0%,32%    { fill-opacity: 0; }
+    34%       { fill-opacity: 0.15; }
+    36%       { fill-opacity: 0.5; }
+    38%       { fill-opacity: 0.9; }
+    40%       { fill-opacity: 1; }
+    57%       { fill-opacity: 1; }
+    58.5%     { fill-opacity: 0.82; }
+    60%       { fill-opacity: 1; }
+    63%       { fill-opacity: 0.9; }
+    66%       { fill-opacity: 0.5; }
+    69%       { fill-opacity: 0.15; }
+    70.5%     { fill-opacity: 0; }
+    100%      { fill-opacity: 0; }
+  }
+  @keyframes lg6 {
+    0%,29%    { opacity: 0; stroke-dashoffset: 41.48; }
+    30%       { opacity: 0.3; stroke-dashoffset: 40.5; }
+    32%       { opacity: 0.65; }
+    36%       { stroke-dashoffset: 0; opacity: 0.45; }
+    43%       { opacity: 0; }
+    57%       { opacity: 0; stroke-dashoffset: 0; }
+    60%       { opacity: 0.5; }
+    71%       { stroke-dashoffset: -41.48; opacity: 0; }
+    100%      { opacity: 0; }
+  }
+
+  /* ─── P7  L=194.79 ─── */
+  @keyframes lp7s {
+    0%,31%      { stroke-dashoffset: 194.79; stroke-opacity: 0; }
+    31.5%       { stroke-opacity: 1; }
+    32.5%       { stroke-dashoffset: 191.5; }
+    46%         { stroke-dashoffset: -1.1; }
+    47.5%       { stroke-dashoffset: 0; }
+    60%         { stroke-dashoffset: 0; }
+    73%         { stroke-dashoffset: -194.79; stroke-opacity: 1; }
+    73.5%       { stroke-opacity: 0; }
+    73.51%,100% { stroke-dashoffset: -194.79; stroke-opacity: 0; }
+  }
+  @keyframes lp7f {
+    0%,40%    { fill-opacity: 0; }
+    43%       { fill-opacity: 0.15; }
+    46%       { fill-opacity: 0.5; }
+    49%       { fill-opacity: 0.9; }
+    52%       { fill-opacity: 1; }
+    58%       { fill-opacity: 1; }
+    59.5%     { fill-opacity: 0.82; }
+    61%       { fill-opacity: 1; }
+    64%       { fill-opacity: 0.9; }
+    67%       { fill-opacity: 0.5; }
+    70%       { fill-opacity: 0.15; }
+    72%       { fill-opacity: 0; }
+    100%      { fill-opacity: 0; }
+  }
+  @keyframes lg7 {
+    0%,31%    { opacity: 0; stroke-dashoffset: 194.79; }
+    32.5%     { opacity: 0.3; stroke-dashoffset: 191.5; }
+    37%       { opacity: 0.65; }
+    46%       { stroke-dashoffset: 0; opacity: 0.45; }
+    53%       { opacity: 0; }
+    58%       { opacity: 0; stroke-dashoffset: 0; }
+    61%       { opacity: 0.5; }
+    73%       { stroke-dashoffset: -194.79; opacity: 0; }
+    100%      { opacity: 0; }
+  }
+
+  /* ─── Light sweep ─── */
+  @keyframes lightSweep {
+    0%,44%    { transform: translateX(-30px); opacity: 0; }
+    46%       { opacity: 1; }
+    58%       { opacity: 1; }
+    60%       { transform: translateX(160px); opacity: 0; }
+    100%      { transform: translateX(160px); opacity: 0; }
+  }
+
+  /* ─── Breathe pulse ─── */
+  @keyframes breathe {
+    0%,44%    { filter: url(#noGlow); }
+    48%       { filter: url(#breatheGlow); }
+    52%       { filter: url(#noGlow); }
+    56%       { filter: url(#breatheGlow); }
+    60%       { filter: url(#noGlow); }
+    100%      { filter: url(#noGlow); }
+  }
+
+  /*
+    stroke-dasharray uses "L, (L+2)" so the gap always exceeds
+    the dash length — prevents round-cap bleed at offset boundaries.
+  */
+  .roboxrise-intro-loader #lp1 {
+    stroke-dasharray: 204.59, 206.59;
+    animation-name: lp1s, lp1f;
+    animation-timing-function:
+      cubic-bezier(0.12, 0.72, 0.28, 1),
+      cubic-bezier(0.37, 0, 0.63, 1);
+  }
+  .roboxrise-intro-loader #lp2 {
+    stroke-dasharray: 111.11, 113.11;
+    animation-name: lp2s, lp2f;
+    animation-timing-function:
+      cubic-bezier(0.15, 0.68, 0.30, 1),
+      cubic-bezier(0.37, 0, 0.63, 1);
+  }
+  .roboxrise-intro-loader #lp3 {
+    stroke-dasharray: 100.78, 102.78;
+    animation-name: lp3s, lp3f;
+    animation-timing-function:
+      cubic-bezier(0.15, 0.68, 0.30, 1),
+      cubic-bezier(0.37, 0, 0.63, 1);
+  }
+  .roboxrise-intro-loader #lp4 {
+    stroke-dasharray: 80.70, 82.70;
+    animation-name: lp4s, lp4f;
+    animation-timing-function:
+      cubic-bezier(0.18, 0.64, 0.32, 1),
+      cubic-bezier(0.37, 0, 0.63, 1);
+  }
+  .roboxrise-intro-loader #lp5 {
+    stroke-dasharray: 103.36, 105.36;
+    animation-name: lp5s, lp5f;
+    animation-timing-function:
+      cubic-bezier(0.15, 0.68, 0.30, 1),
+      cubic-bezier(0.37, 0, 0.63, 1);
+  }
+  .roboxrise-intro-loader #lp6 {
+    stroke-dasharray: 41.48, 43.48;
+    animation-name: lp6s, lp6f;
+    animation-timing-function:
+      cubic-bezier(0.20, 0.60, 0.35, 1),
+      cubic-bezier(0.37, 0, 0.63, 1);
+  }
+  .roboxrise-intro-loader #lp7 {
+    stroke-dasharray: 194.79, 196.79;
+    animation-name: lp7s, lp7f;
+    animation-timing-function:
+      cubic-bezier(0.12, 0.72, 0.28, 1),
+      cubic-bezier(0.37, 0, 0.63, 1);
+  }
+
+  /* Glow paths — same extended gap pattern */
+  .roboxrise-intro-loader #lg1 { stroke-dasharray: 204.59, 206.59; animation-name: lg1; }
+  .roboxrise-intro-loader #lg2 { stroke-dasharray: 111.11, 113.11; animation-name: lg2; }
+  .roboxrise-intro-loader #lg3 { stroke-dasharray: 100.78, 102.78; animation-name: lg3; }
+  .roboxrise-intro-loader #lg4 { stroke-dasharray: 80.70, 82.70;   animation-name: lg4; }
+  .roboxrise-intro-loader #lg5 { stroke-dasharray: 103.36, 105.36; animation-name: lg5; }
+  .roboxrise-intro-loader #lg6 { stroke-dasharray: 41.48, 43.48;   animation-name: lg6; }
+  .roboxrise-intro-loader #lg7 { stroke-dasharray: 194.79, 196.79; animation-name: lg7; }
+
+  .roboxrise-intro-loader #light-sweep {
+    animation: lightSweep 5.8s cubic-bezier(0.37, 0, 0.63, 1) 1 both;
+    will-change: transform, opacity;
+  }
+
+  .roboxrise-intro-loader #main-paths {
+    animation: breathe 5.8s cubic-bezier(0.37, 0, 0.63, 1) 1 both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .roboxrise-intro-loader .lp,
+    .roboxrise-intro-loader .lp-glow,
+    .roboxrise-intro-loader #light-sweep,
+    .roboxrise-intro-loader #main-paths {
+      animation: none !important;
+    }
+    .roboxrise-intro-loader .lp {
+      fill-opacity: 1;
+      stroke-dashoffset: 0;
+      stroke-opacity: 1;
+    }
+  }

@@ -1,0 +1,169 @@
+.sectionWho {
+    background-color: var(--color-bg-primary);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    text-align: center;
+    max-width: 48rem;
+    margin: 0 auto;
+}
+
+.tag {
+    font-family: var(--font-inter), 'Inter', sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.heading {
+    font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+    font-size: 2.75rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.subHeading {
+    font-family: var(--font-inter), 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.55);
+    max-width: 36rem;
+}
+
+/* 3-Column Grid Layout */
+.centerGrid {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr 1fr;
+    gap: 1.25rem;
+    align-items: stretch;
+}
+
+.sideColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+/* Card Style */
+.cardItem {
+    background-color: #ffffff;
+    padding: 1.75rem;
+    border-radius: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+}
+
+.cardItem:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(255, 107, 53, 0.1);
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-top: auto;
+}
+
+/* Icon */
+.iconWrap {
+    width: 2.75rem;
+    height: 2.75rem;
+    background: linear-gradient(135deg, #ff6b35 0%, #ffa366 100%);
+    color: #ffffff;
+    border-radius: 0.625rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+}
+
+.iconWrap svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+/* Typography */
+.itemLabel {
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    display: inline;
+}
+
+.itemDescription {
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.875rem;
+    color: rgba(0, 0, 0, 0.55);
+    line-height: 1.55;
+    display: inline;
+}
+
+/* Center Image */
+.centerImageWrap {
+    position: relative;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    max-height: 28rem;
+    /* Constrain height */
+    align-self: center;
+    /* Center vertically in grid */
+}
+
+.centerImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    /* Focus on top of image */
+}
+
+/* Responsive */
+@media screen and (max-width: 991px) {
+    .centerGrid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .centerImageWrap {
+        min-height: 22rem;
+        order: -1;
+    }
+
+    .sideColumn {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .heading {
+        font-size: 2.25rem;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .sideColumn {
+        grid-template-columns: 1fr;
+    }
+
+    .heading {
+        font-size: 1.75rem;
+    }
+}

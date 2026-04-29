@@ -1,0 +1,241 @@
+.sectionTeam {
+    background-color: var(--color-bg-primary);
+}
+
+.teamContent {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Mobile Title */
+.topComponent {
+    display: none;
+}
+
+.topComponent.isTablet {
+    display: none;
+}
+
+.topContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Team Component */
+.teamComponent {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1.5rem;
+}
+
+/* Info Card */
+.teamCard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #1f1f1f;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    color: #ffffff;
+}
+
+.teamItemContent {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Team List */
+.teamListWrap {
+    display: flex;
+}
+
+.teamList {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.teamItem {
+    display: flex;
+}
+
+.teamItemCard {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
+.teamItemImage {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.teamItemCard:hover .teamItemImage {
+    box-shadow: 0 12px 32px rgba(255, 107, 53, 0.15);
+}
+
+.teamItemImage.isV2 {
+    aspect-ratio: 1 / 1;
+}
+
+.teamMemberName {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+/* Product Card Styles */
+.productName {
+    font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.productSubtitle {
+    font-size: 0.9375rem;
+    /* Increased slightly */
+    color: var(--color-text-primary);
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 0.25rem;
+}
+
+.productTagline {
+    font-size: 0.8125rem;
+    /* Increased from 0.75rem */
+    color: var(--color-text-secondary);
+    opacity: 0.8;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    /* Add clear separation before the link */
+}
+
+/* Link View Animation */
+.linkView {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #ff6b35;
+    font-weight: 500;
+    margin-top: auto;
+    padding-top: 0.5rem;
+    font-size: 0.9375rem;
+    transition: color 0.2s ease;
+}
+
+.linkView:hover {
+    color: #e85a28;
+}
+
+.teamItem {
+    display: flex;
+    height: 100%;
+    /* Ensure the items take full available height */
+}
+
+.teamItemCard {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    color: inherit;
+    text-decoration: none;
+    height: 100%;
+    /* Full height to allow flex expansion */
+}
+
+.teamMemberName {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex-grow: 1;
+    /* Allows this container to fill space */
+}
+
+.iconWrap {
+    display: flex;
+    width: 1.5rem;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.iconWrap svg {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+/* Clover */
+.clover {
+    position: absolute;
+    width: 8rem;
+    height: 8rem;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.clover.isRight {
+    top: 1rem;
+    right: 1rem;
+}
+
+.marginBottomSmall {
+    margin-bottom: 1rem;
+}
+
+/* Browse All Products Button - Orange Gradient */
+.browseButton {
+    background: linear-gradient(135deg, #ff6b35 0%, #ffa366 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    font-weight: 600 !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.25);
+}
+
+.browseButton:hover {
+    transform: translateY(-2px) scale(1.02) !important;
+    box-shadow: 0 8px 24px rgba(255, 107, 53, 0.4) !important;
+}
+
+.browseButton:active {
+    transform: translateY(0) scale(1) !important;
+}
+
+/* Responsive */
+@media screen and (max-width: 991px) {
+    .topComponent.isTablet {
+        display: block;
+    }
+
+    .teamComponent {
+        grid-template-columns: 1fr;
+    }
+
+    .teamList {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .teamList {
+        grid-template-columns: 1fr;
+    }
+}

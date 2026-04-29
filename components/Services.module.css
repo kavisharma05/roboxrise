@@ -1,0 +1,239 @@
+.sectionServices {
+    background-color: var(--color-bg-primary);
+}
+
+.servicesContent {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.titleComponent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+/* Section Heading - matching Hero style with orange accent */
+.sectionHeading {
+    font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+    font-size: var(--text-5xl);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+/* Orange accent for heading dots */
+.headingAccent {
+    color: #ff6b35;
+}
+
+.titleDescriptionWrap {
+    max-width: 32rem;
+}
+
+.titleDescription {
+    font-size: var(--text-base);
+    line-height: 1.65;
+    color: var(--color-text-secondary);
+}
+
+/* Cards Grid */
+.mindGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.mindCard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: #1f1f1f;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    color: #ffffff;
+}
+
+/* Orange-tinted light cards */
+.mindCard.isV2 {
+    background-color: #fff4ed;
+    color: #1a1a1a;
+    border: 1px solid rgba(255, 107, 53, 0.1);
+}
+
+.mindContent {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: 100%;
+}
+
+.mindTop {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    flex: 1;
+}
+
+.mindText {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Card Title - proportionate to section */
+.cardTitle {
+    font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+    font-size: var(--text-xl);
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+/* Card Description */
+.cardDescription {
+    font-size: var(--text-sm);
+    line-height: 1.6;
+    opacity: 0.85;
+}
+
+/* Bullet List */
+.bulletList {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.bulletList li {
+    font-size: var(--text-xs);
+    opacity: 0.7;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.bulletList li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #ff6b35;
+}
+
+.isV2 .bulletList li::before {
+    color: #e85a28;
+}
+
+/* Primary Card (center - dark card with orange accent) */
+.mindCard.isPrimary {
+    transform: scale(1.05);
+    z-index: 2;
+    background: linear-gradient(180deg, #2a2017 0%, #1f1f1f 100%);
+    border-top: 2px solid #ff6b35;
+}
+
+/* Card Link Buttons */
+.cardLink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    padding: 0.75rem 1.375rem;
+    font-family: var(--font-inter), 'Inter', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    border-radius: 9999px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    white-space: nowrap;
+}
+
+/* Orange gradient button for primary (dark) card */
+.cardLinkPrimary {
+    composes: cardLink;
+    color: #ffffff;
+    background: linear-gradient(135deg, #ff6b35 0%, #ffa366 100%);
+    border: none;
+}
+
+.cardLinkPrimary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.35);
+}
+
+/* Outlined orange button for light cards */
+.cardLinkSecondary {
+    composes: cardLink;
+    color: #ff6b35;
+    background: transparent;
+    border: 1px solid rgba(255, 107, 53, 0.3);
+}
+
+.cardLinkSecondary:hover {
+    background: rgba(255, 107, 53, 0.06);
+    border-color: rgba(255, 107, 53, 0.5);
+    transform: translateY(-1px);
+}
+
+/* Card link arrow icon */
+.cardLinkArrow {
+    transition: transform 0.25s ease;
+}
+
+.cardLink:hover .cardLinkArrow {
+    transform: translateX(3px);
+}
+
+/* Clover Decoration */
+.clover {
+    position: absolute;
+    width: 8rem;
+    height: 8rem;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.clover.isRight {
+    top: 1rem;
+    right: 1rem;
+}
+
+/* Responsive */
+@media screen and (max-width: 991px) {
+    .sectionHeading {
+        font-size: 2.5rem;
+    }
+
+    .mindGrid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .mindCard {
+        padding: 1.5rem;
+    }
+
+    .mindCard.isPrimary {
+        transform: scale(1);
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .sectionHeading {
+        font-size: 2rem;
+    }
+
+    .cardTitle {
+        font-size: var(--text-lg);
+    }
+}

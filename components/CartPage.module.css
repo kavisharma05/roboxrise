@@ -1,0 +1,515 @@
+/* ============================================
+   CartPage — All Sections
+   ============================================ */
+
+/* ----------------------------------------
+   Section 1: Page Hero
+   ---------------------------------------- */
+.heroSection {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-align: center;
+}
+
+.heroBg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: #1a1a1a;
+}
+
+.heroBg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 80%, rgba(255, 107, 53, 0.12) 0%, transparent 65%);
+    z-index: 1;
+}
+
+.heroInner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    max-width: 44rem;
+    padding: 0 2rem;
+}
+
+.heroPill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.375rem 1rem 0.375rem 0.75rem;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.heroPillDot {
+    width: 0.375rem;
+    height: 0.375rem;
+    border-radius: 50%;
+    background: #ff6b35;
+    box-shadow: 0 0 6px rgba(255, 107, 53, 0.6);
+    flex-shrink: 0;
+}
+
+.heroHeading {
+    font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+    font-size: var(--text-7xl);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    color: #ffffff;
+}
+
+.heroDescription {
+    max-width: 30rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+}
+
+/* ----------------------------------------
+   Section 2: Cart Content
+   ---------------------------------------- */
+.cartSection {
+    background-color: var(--color-bg-primary);
+}
+
+.cartGrid {
+    display: grid;
+    grid-template-columns: 1fr 22rem;
+    gap: 2rem;
+    align-items: start;
+}
+
+.cartItems {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.cartHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cartHeaderTitle {
+    font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+/* ─── Cart Card ─── */
+.cartCard {
+    display: flex;
+    gap: 1.5rem;
+    background: var(--color-bg-secondary);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+    transition: box-shadow 0.3s ease;
+}
+
+.cartCard:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+.cartCardImage {
+    width: 10rem;
+    height: 10rem;
+    flex-shrink: 0;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--color-bg-primary);
+}
+
+.cartCardImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.cartCardBody {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.cartCardInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cartCardName {
+    font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    line-height: 1.4;
+}
+
+.cartCardPricing {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+.cartCardPrice {
+    font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: #ff6b35;
+}
+
+.cartCardOriginal {
+    font-family: var(--font-inter), 'Inter', sans-serif;
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    text-decoration: line-through;
+}
+
+.cartCardActions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+/* ─── Quantity Stepper ─── */
+.quantityStepper {
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+.stepperButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: transparent;
+    border: none;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.stepperButton:hover {
+    background: rgba(255, 107, 53, 0.08);
+    color: #ff6b35;
+}
+
+.stepperInput {
+    width: 3rem;
+    height: 2.5rem;
+    border: none;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: var(--font-inter), 'Inter', sans-serif;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    background: transparent;
+    outline: none;
+    -moz-appearance: textfield;
+}
+
+.stepperInput::-webkit-outer-spin-button,
+.stepperInput::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* ─── Remove Button ─── */
+.removeButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-inter), 'Inter', sans-serif;
+    font-size: var(--text-xs);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.removeButton:hover {
+    background: rgba(220, 38, 38, 0.06);
+    color: #dc2626;
+    border-color: rgba(220, 38, 38, 0.25);
+}
+
+/* ─── Continue Shopping ─── */
+.continueShopping {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-inter), 'Inter', sans-serif;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: #ff6b35;
+    text-decoration: none;
+    transition: gap 0.25s ease;
+}
+
+.continueShopping:hover {
+    gap: 0.75rem;
+}
+
+/* ─── Order Summary ─── */
+.summaryColumn {
+    position: sticky;
+    top: 6rem;
+}
+
+.summaryCard {
+    background: var(--color-bg-secondary);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.summaryTitle {
+    font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.summaryRows {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.summaryRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--font-inter), 'Inter', sans-serif;
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+}
+
+.freeShipping {
+    color: #16a34a;
+    font-weight: 600;
+}
+
+.summaryDivider {
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.summaryTotal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+}
+
+.checkoutButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    font-family: var(--font-inter), 'Inter', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(135deg, #ff6b35 0%, #ffa366 100%);
+    border: none;
+    border-radius: 9999px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    white-space: nowrap;
+}
+
+.checkoutButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 107, 53, 0.35);
+}
+
+.checkoutButton svg {
+    transition: transform 0.25s ease;
+}
+
+.checkoutButton:hover svg {
+    transform: translateX(3px);
+}
+
+/* ─── Empty State ─── */
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 5rem 2rem;
+    gap: 1.25rem;
+}
+
+.emptyIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    background: rgba(255, 107, 53, 0.08);
+    color: #ff6b35;
+    margin-bottom: 0.5rem;
+}
+
+.emptyHeading {
+    font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+    font-size: var(--text-5xl);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    line-height: 1.2;
+}
+
+.emptyDescription {
+    max-width: 28rem;
+    font-family: var(--font-inter), 'Inter', sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+}
+
+.emptyButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    padding: 0.875rem 1.75rem;
+    font-family: var(--font-inter), 'Inter', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(135deg, #ff6b35 0%, #ffa366 100%);
+    border: none;
+    border-radius: 9999px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    white-space: nowrap;
+}
+
+.emptyButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 107, 53, 0.35);
+}
+
+.emptyButton svg {
+    transition: transform 0.25s ease;
+}
+
+.emptyButton:hover svg {
+    transform: translateX(3px);
+}
+
+/* ============================================
+   Responsive: Tablet (≤991px)
+   ============================================ */
+@media screen and (max-width: 991px) {
+    .heroSection {
+        min-height: 40vh;
+    }
+
+    .cartGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .summaryColumn {
+        position: static;
+    }
+
+    .cartCardImage {
+        width: 8rem;
+        height: 8rem;
+    }
+}
+
+/* ============================================
+   Responsive: Mobile (≤479px)
+   ============================================ */
+@media screen and (max-width: 479px) {
+    .heroSection {
+        min-height: 35vh;
+    }
+
+    .heroInner {
+        padding: 0 1.25rem;
+    }
+
+    .cartCard {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.25rem;
+    }
+
+    .cartCardImage {
+        width: 100%;
+        height: 12rem;
+    }
+
+    .cartCardActions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .emptyState {
+        padding: 3rem 1rem;
+    }
+
+    .emptyIcon {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .emptyIcon svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .summaryCard {
+        padding: 1.5rem;
+    }
+}

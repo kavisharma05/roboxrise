@@ -1,0 +1,161 @@
+.sectionDiscover {
+    background-color: var(--color-bg-primary);
+    padding: 8rem 0;
+    overflow: hidden;
+}
+
+.discoverWrap {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+/* Left Content */
+.discoverContent {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.heading {
+    font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+    font-size: var(--text-5xl);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+/* Right Content - Modern Grid Collage */
+.discoverImages {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    aspect-ratio: 1 / 0.85;
+    gap: 0;
+    position: relative;
+    /* Isolate stacking context so pseudo-elements dont break out */
+    isolation: isolate;
+}
+
+.imageWrapper {
+    position: relative;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.imageWrapper:hover {
+    /* No hover animation */
+}
+
+.imageWrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Image Positioning */
+/* Large main image */
+.imgMain {
+    grid-column: 4 / -1;
+    grid-row: 1 / 11;
+    z-index: 1;
+}
+
+/* Small overlapping image bottom left */
+.imgSecondary {
+    grid-column: 1 / 6;
+    grid-row: 7 / -1;
+    z-index: 2;
+    border: 4px solid var(--color-bg-primary);
+}
+
+/* Decoration/Accent (optional top right) */
+.imgAccent {
+    grid-column: 10 / -1;
+    grid-row: 9 / -1;
+    z-index: 3;
+    border: 4px solid var(--color-bg-primary);
+    aspect-ratio: 1;
+}
+
+
+/* Premium Stats */
+.statsWrapper {
+    display: flex;
+    gap: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 107, 53, 0.15);
+}
+
+.statsItem {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.statsNumber {
+    font-size: var(--text-6xl);
+    font-weight: 400;
+    /* Lighter weight for modern feel */
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: flex-start;
+}
+
+.statsSymbol {
+    font-size: 1.5rem;
+    margin-top: 0.2rem;
+    color: #ff6b35;
+}
+
+.statsLabel {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    font-weight: 400;
+}
+
+
+/* Responsive */
+@media screen and (max-width: 991px) {
+    .sectionDiscover {
+        padding: 5rem 0;
+    }
+
+    .discoverWrap {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .heading {
+        font-size: 2.5rem;
+        max-width: 800px;
+    }
+
+    .discoverImages {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .heading {
+        font-size: 2rem;
+    }
+
+    .statsWrapper {
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+
+    .statsItem {
+        flex: 1 1 40%;
+    }
+}

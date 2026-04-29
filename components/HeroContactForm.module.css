@@ -1,0 +1,220 @@
+/* ============================================
+   Hero Contact Form - Glassmorphism Card
+   ============================================ */
+
+.formCard {
+    position: relative;
+    width: 100%;
+    max-width: 21rem;
+    padding: 1.75rem 1.5rem 1.5rem;
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(24px) saturate(1.2);
+    -webkit-backdrop-filter: blur(24px) saturate(1.2);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 1.25rem;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+/* Decorative orange accent line at top */
+.topAccent {
+    position: absolute;
+    top: 0;
+    left: 1.5rem;
+    right: 1.5rem;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ff6b35, #ffa366, transparent);
+    border-radius: 0 0 2px 2px;
+}
+
+/* ----------------------------------------
+   Header
+   ---------------------------------------- */
+.formHeader {
+    margin-bottom: 1.25rem;
+}
+
+.formTitle {
+    font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+}
+
+.formSubtitle {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.5;
+}
+
+/* ----------------------------------------
+   Form Layout
+   ---------------------------------------- */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+}
+
+/* ----------------------------------------
+   Input Group
+   ---------------------------------------- */
+.inputGroup {
+    position: relative;
+}
+
+.input {
+    width: 100%;
+    padding: 0.6875rem 2.5rem 0.6875rem 0.875rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8125rem;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.625rem;
+    outline: none;
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.input:focus {
+    border-color: rgba(255, 107, 53, 0.5);
+    background: rgba(255, 255, 255, 0.09);
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.08);
+}
+
+.textarea {
+    resize: none;
+    min-height: 4.5rem;
+    padding-top: 0.6875rem;
+    line-height: 1.5;
+}
+
+/* ----------------------------------------
+   Input Icon
+   ---------------------------------------- */
+.inputIcon {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1rem;
+    height: 1rem;
+    color: rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+    transition: color 0.2s ease;
+}
+
+.inputGroup:focus-within .inputIcon {
+    color: rgba(255, 107, 53, 0.6);
+}
+
+.textareaIcon {
+    top: 0.875rem;
+    transform: none;
+}
+
+/* ----------------------------------------
+   Submit Button
+   ---------------------------------------- */
+.submitBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.75rem 1.25rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 50%, #ffa366 100%);
+    border: none;
+    border-radius: 0.625rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-top: 0.25rem;
+    letter-spacing: 0.01em;
+}
+
+.submitBtn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+}
+
+.submitBtn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.submitBtn svg {
+    opacity: 0.85;
+    transition: transform 0.2s ease;
+}
+
+.submitBtn:hover svg {
+    transform: translate(2px, -2px);
+}
+
+/* ----------------------------------------
+   Success Message
+   ---------------------------------------- */
+.successMessage {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem 1rem;
+}
+
+.successIconWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: rgba(255, 107, 53, 0.15);
+    border: 1px solid rgba(255, 107, 53, 0.25);
+    border-radius: 50%;
+    color: #ffa366;
+    flex-shrink: 0;
+}
+
+.successTitle {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0.125rem;
+}
+
+.successText {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media screen and (max-width: 991px) {
+    .formCard {
+        max-width: 22rem;
+        margin: 0 auto;
+    }
+
+    .formTitle {
+        font-size: 1.375rem;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .formCard {
+        max-width: 100%;
+    }
+}

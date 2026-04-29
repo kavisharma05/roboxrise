@@ -1,0 +1,345 @@
+/* ============================================
+   Footer Section - Modern Premium Design
+   Matching Navbar Aesthetic
+   ============================================ */
+
+.sectionFooter {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Main Content Container */
+.footerContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* ============================================
+   Top Bar - Floating Pill Style (like navbar)
+   ============================================ */
+.footerTopBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    background-color: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 100px;
+    margin-bottom: 4rem;
+}
+
+.footerTopBarLeft {
+    display: flex;
+    align-items: center;
+}
+
+.footerLogo {
+    height: 1.5rem;
+    width: auto;
+}
+
+/* Navigation Links in Top Bar */
+.footerNav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.footerNavLink {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.65);
+    transition: color 0.2s ease;
+}
+
+.footerNavLink:hover {
+    color: #ffffff;
+}
+
+/* CTA Button in Top Bar */
+.footerCta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem 1.25rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    background-color: #ffffff;
+    border-radius: 100px;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.footerCta:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: scale(1.02);
+}
+
+/* ============================================
+   Main Footer Content
+   ============================================ */
+.footerMain {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Left Side */
+.footerLeftWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.footerBrand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+}
+
+.brandLogo {
+    height: 1.75rem;
+    width: auto;
+}
+
+.brandDescription {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.55);
+    max-width: 320px;
+}
+
+/* Newsletter Section */
+.newsletterSection {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.newsletterTitle {
+    font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.newsletterForm {
+    display: flex;
+    gap: 0.75rem;
+    max-width: 380px;
+}
+
+.newsletterInput {
+    flex: 1;
+    padding: 0.875rem 1.25rem;
+    font-size: 0.875rem;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    outline: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.newsletterInput::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.newsletterInput:focus {
+    border-color: rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.newsletterButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 1.5rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+    white-space: nowrap;
+}
+
+.newsletterButton:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: scale(1.02);
+}
+
+.successMessage {
+    padding: 0.75rem 1rem;
+    background-color: rgba(168, 213, 162, 0.15);
+    border-radius: 0.5rem;
+    font-size: 0.8125rem;
+    color: #a8d5a2;
+    max-width: 380px;
+}
+
+/* Right Side - Link Columns */
+.footerRight {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.linkColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.columnTitle {
+    font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #ffa366;
+}
+
+.linkList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+}
+
+.footerLink {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.65);
+    transition: color 0.2s ease;
+    padding: 0.125rem 0;
+}
+
+.footerLink:hover {
+    color: #ffa366;
+}
+
+/* ============================================
+   Bottom Bar
+   ============================================ */
+.footerBottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 2rem;
+}
+
+.copyright {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.copyrightLink {
+    color: rgba(255, 255, 255, 0.55);
+    transition: color 0.2s ease;
+}
+
+.copyrightLink:hover {
+    color: #ffffff;
+}
+
+/* Social Links */
+.socialLinks {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.socialLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: rgba(255, 255, 255, 0.5);
+    background-color: transparent;
+    border-radius: 50%;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.socialLink:hover {
+    color: #ffffff;
+    background-color: rgba(255, 107, 53, 0.15);
+}
+
+.socialLink svg {
+    width: 1.125rem;
+    height: 1.125rem;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media screen and (max-width: 991px) {
+    .footerTopBar {
+        display: none;
+    }
+
+    .footerMain {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .footerRight {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .brandDescription {
+        max-width: 100%;
+    }
+
+    .newsletterForm {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .footerRight {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .footerBottom {
+        flex-direction: column-reverse;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .newsletterForm {
+        flex-direction: column;
+    }
+
+    .newsletterButton {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .footerMain {
+        padding-bottom: 3rem;
+    }
+
+    .footerRight {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footerBottom {
+        padding-top: 1.5rem;
+    }
+}
