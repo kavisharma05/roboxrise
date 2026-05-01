@@ -119,16 +119,10 @@ export default function Navbar({ theme = "default" }: NavbarProps) {
                     </div>
 
                     <Link href="/" className={styles.logoLink}>
-                        {/* Desktop/tablet logo vs mobile inverted-asset logo */}
                         <img
                             src="/roboriselogo.svg"
                             alt="RoboxRise"
-                            className={`${styles.logo} ${styles.logoDesktop}`}
-                        />
-                        <img
-                            src="/roboriselogoinvert.svg"
-                            alt="RoboxRise"
-                            className={`${styles.logo} ${styles.logoMobile}`}
+                            className={styles.logo}
                         />
                     </Link>
 
