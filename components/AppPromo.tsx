@@ -36,7 +36,7 @@ export default function AppPromo() {
                         <div className={styles.appVisual}>
                             <img
                                 src="https://res.cloudinary.com/dixayfqq8/image/upload/v1770617233/freepik__conceptual-educational-product-photography-featuri__46856_m71jx3.png"
-                                alt=""
+                                alt="RoboxRise classroom robotics kits and learning resources"
                                 className="image"
                             />
                         </div>

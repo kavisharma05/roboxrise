@@ -59,7 +59,7 @@ export default function Hero() {
                     {/* Mobile Image - shown on tablet and below */}
                     <img
                         src="https://res.cloudinary.com/dixayfqq8/image/upload/v1770269617/section1a_okfphc.jpg"
-                        alt=""
+                        alt="Students learning robotics with RoboxRise educational systems"
                         className={`${styles.imageMain} ${styles.showTablet}`}
                     />
                     {/* Desktop Video - hidden on tablet and below */}
