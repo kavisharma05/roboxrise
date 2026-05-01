@@ -177,7 +177,7 @@ export default function ContactPage() {
                                             </svg>
                                         </button>
 
-                                        {state.errors && state.errors.length > 0 && (
+                                        {Boolean(state.errors) && (
                                             <div className={styles.successMsg}>
                                                 There was an issue sending your message. Please review the fields and try again.
                                             </div>

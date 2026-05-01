@@ -104,7 +104,7 @@ export default function HeroContactForm() {
                             <polygon points="22 2 15 22 11 13 2 9 22 2" />
                         </svg>
                     </button>
-                    {state.errors && state.errors.length > 0 && (
+                    {Boolean(state.errors) && (
                         <div className={styles.successText}>Unable to submit right now. Please check your details and try again.</div>
                     )}
                 </form>
