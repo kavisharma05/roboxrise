@@ -136,7 +136,15 @@
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
-    object-fit: cover;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-inter), 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #ff6b35;
+    background-color: rgba(255, 107, 53, 0.12);
+    border: 1px solid rgba(255, 107, 53, 0.24);
 }
 
 .authorInfo {

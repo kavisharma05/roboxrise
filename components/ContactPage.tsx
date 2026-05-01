@@ -1,44 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import { createClient } from "@/lib/supabase/client";
+import { useForm, ValidationError } from "@formspree/react";
 import ScrollAnimation from "./ScrollAnimation";
 import styles from "./ContactPage.module.css";
 
 export default function ContactPage() {
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
-    });
-    const [status, setStatus] = useState<"idle" | "success">("idle");
-    const supabase = createClient();
-
-    const handleChange = (
-        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-    ) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        if (!supabase) return;
-
-        await supabase.from("contact_submissions").insert({
-            source: "contact",
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone || null,
-            subject: formData.subject || null,
-            message: formData.message,
-        });
-
-        setStatus("success");
-        setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-        setTimeout(() => setStatus("idle"), 4000);
-    };
+    const [state, handleSubmit] = useForm("mpqbwznl");
 
     return (
         <>
@@ -47,7 +14,7 @@ export default function ContactPage() {
                 <div className={styles.heroBg}>
                     <img
                         src="https://res.cloudinary.com/dixayfqq8/image/upload/v1770269622/section1b_pmqjf3.jpg"
-                        alt="RoboRise contact"
+                        alt="RoboxRise contact"
                     />
                 </div>
                 <div className={styles.heroInner}>
@@ -59,7 +26,7 @@ export default function ContactPage() {
                     </ScrollAnimation>
                     <ScrollAnimation>
                         <h1 className={styles.heroHeading}>
-                            Contact RoboRise
+                            Contact RoboxRise
                         </h1>
                     </ScrollAnimation>
                     <ScrollAnimation>
@@ -115,6 +82,7 @@ export default function ContactPage() {
                                         onSubmit={handleSubmit}
                                         className={styles.formGrid}
                                     >
+                                        <input type="hidden" name="source" value="contact-page" />
                                         <div className="form_field-wrapper">
                                             <label htmlFor="cp-name" className="form_label">
                                                 Full Name
@@ -126,8 +94,6 @@ export default function ContactPage() {
                                                 className="form_input"
                                                 placeholder="Your name"
                                                 required
-                                                value={formData.name}
-                                                onChange={handleChange}
                                             />
                                         </div>
 
@@ -142,8 +108,11 @@ export default function ContactPage() {
                                                 className="form_input"
                                                 placeholder="you@example.com"
                                                 required
-                                                value={formData.email}
-                                                onChange={handleChange}
+                                            />
+                                            <ValidationError
+                                                prefix="Email"
+                                                field="email"
+                                                errors={state.errors}
                                             />
                                         </div>
 
@@ -160,8 +129,6 @@ export default function ContactPage() {
                                                 name="phone"
                                                 className="form_input"
                                                 placeholder="+91 00000 00000"
-                                                value={formData.phone}
-                                                onChange={handleChange}
                                             />
                                         </div>
 
@@ -176,8 +143,6 @@ export default function ContactPage() {
                                                 className="form_input"
                                                 placeholder="What is this regarding?"
                                                 required
-                                                value={formData.subject}
-                                                onChange={handleChange}
                                             />
                                         </div>
 
@@ -192,26 +157,33 @@ export default function ContactPage() {
                                                 placeholder="Tell us about your project or question..."
                                                 required
                                                 rows={5}
-                                                value={formData.message}
-                                                onChange={handleChange}
+                                            />
+                                            <ValidationError
+                                                prefix="Message"
+                                                field="message"
+                                                errors={state.errors}
                                             />
                                         </div>
 
-                                        <button type="submit" className={styles.submitButton} disabled={!supabase}>
-                                            <span>Send Message</span>
+                                        <button
+                                            type="submit"
+                                            className={styles.submitButton}
+                                            disabled={state.submitting}
+                                        >
+                                            <span>{state.submitting ? "Sending..." : "Send Message"}</span>
                                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                                 <line x1="22" y1="2" x2="11" y2="13" />
                                                 <polygon points="22 2 15 22 11 13 2 9 22 2" />
                                             </svg>
                                         </button>
 
-                                        {!supabase && (
+                                        {state.errors && state.errors.length > 0 && (
                                             <div className={styles.successMsg}>
-                                                Contact form is temporarily unavailable.
+                                                There was an issue sending your message. Please review the fields and try again.
                                             </div>
                                         )}
 
-                                        {status === "success" && (
+                                        {state.succeeded && (
                                             <div className={styles.successMsg}>
                                                 <svg className={styles.successIcon} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                                     <polyline points="20 6 9 17 4 12" />
@@ -272,8 +244,8 @@ export default function ContactPage() {
                                         </div>
                                         <div className={styles.infoContent}>
                                             <span className={styles.infoLabel}>Email Us</span>
-                                            <a href="mailto:Cosmixpaints@gmail.com" className={styles.infoValue}>
-                                                Cosmixpaints@gmail.com
+                                            <a href="mailto:hello@roborise.com" className={styles.infoValue}>
+                                                hello@roborise.com
                                             </a>
                                             <span className={styles.infoValueSecondary}>
                                                 We reply within 24 hours

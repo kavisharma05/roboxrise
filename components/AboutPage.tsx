@@ -81,7 +81,7 @@ export default function AboutPage() {
                 <div className={styles.heroBg}>
                     <img
                         src="https://res.cloudinary.com/dixayfqq8/image/upload/v1770269617/section1a_okfphc.jpg"
-                        alt="RoboRise team working on robotics"
+                        alt="RoboxRise team working on robotics"
                     />
                 </div>
                 <div className={styles.heroInner}>
@@ -92,7 +92,7 @@ export default function AboutPage() {
                         </div>
                     </ScrollAnimation>
                     <ScrollAnimation>
-                        <h1 className={styles.heroHeading}>About RoboRise</h1>
+                        <h1 className={styles.heroHeading}>About RoboxRise</h1>
                     </ScrollAnimation>
                     <ScrollAnimation>
                         <p className={styles.heroDescription}>
@@ -196,7 +196,7 @@ export default function AboutPage() {
                                 </ScrollAnimation>
                                 <ScrollAnimation>
                                     <p className={styles.sectionBody}>
-                                        At RoboRise, we believe robotics education should be more than
+                                        At RoboxRise, we believe robotics education should be more than
                                         simulations and theory. Our mission is to put real, industrial-quality
                                         robotic systems into the hands of students, educators, and makers —
                                         bridging the gap between academic learning and industry-ready skills.
@@ -217,7 +217,7 @@ export default function AboutPage() {
                                 <div className={styles.missionImage}>
                                     <img
                                         src="https://res.cloudinary.com/dixayfqq8/image/upload/v1770269622/section1b_pmqjf3.jpg"
-                                        alt="Students working with RoboRise kits"
+                                        alt="Students working with RoboxRise kits"
                                     />
                                 </div>
                             </ScrollAnimation>
@@ -256,7 +256,7 @@ export default function AboutPage() {
                             <ScrollAnimation>
                                 <div className={styles.sectionTag}>
                                     <span className={styles.sectionTagDot} />
-                                    Why RoboRise
+                                    Why RoboxRise
                                 </div>
                             </ScrollAnimation>
                             <ScrollAnimation>
@@ -267,7 +267,7 @@ export default function AboutPage() {
                             <ScrollAnimation>
                                 <p className={styles.valuesHeaderDescription}>
                                     Three core principles guide our product design, curriculum, and
-                                    partnerships — ensuring every RoboRise system delivers real impact.
+                                    partnerships — ensuring every RoboxRise system delivers real impact.
                                 </p>
                             </ScrollAnimation>
                         </div>
@@ -307,7 +307,7 @@ export default function AboutPage() {
                             </ScrollAnimation>
                             <ScrollAnimation>
                                 <p className={styles.ecosystemHeaderDescription}>
-                                    RoboRise combines products, curriculum, and institution support into a
+                                    RoboxRise combines products, curriculum, and institution support into a
                                     complete ecosystem that helps learners move from fundamentals to
                                     real-world robotics applications.
                                 </p>

@@ -261,7 +261,7 @@ export default function ProductsPage() {
                 <div className={aboutStyles.heroBg}>
                     <img
                         src="https://res.cloudinary.com/dixayfqq8/image/upload/v1770269618/section1c_fvuwyb.jpg"
-                        alt="RoboRise robotics kits and educational systems"
+                        alt="RoboxRise robotics kits and educational systems"
                     />
                 </div>
                 <div className={aboutStyles.heroInner}>

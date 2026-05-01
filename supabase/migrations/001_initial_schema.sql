@@ -1,5 +1,5 @@
 -- ============================================================
--- RoboRise — Initial schema: profiles, addresses, orders,
+-- RoboxRise — Initial schema: profiles, addresses, orders,
 -- order_items, payment_events.  Run once in Supabase SQL Editor.
 -- ============================================================
 

@@ -62,7 +62,7 @@ export default function Footer() {
                                 <div className={styles.footerBrand}>
                                     <img
                                         src="/roboriselogoinvert.svg"
-                                        alt="RoboRise"
+                                        alt="RoboxRise"
                                         className={styles.brandLogo}
                                     />
                                     <p className={styles.brandDescription}>
@@ -109,7 +109,7 @@ export default function Footer() {
                         {/* Bottom Bar */}
                         <div className={styles.footerBottom}>
                             <p className={styles.copyright}>
-                                © 2026 RoboRise. All rights reserved.
+                                © 2026 RoboxRise. All rights reserved.
                             </p>
                             <div className={styles.socialLinks}>
                                 <a href="#" className={styles.socialLink} aria-label="Instagram">

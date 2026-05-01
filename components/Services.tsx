@@ -186,7 +186,7 @@ export default function Services() {
                                             </ul>
                                         </div>
                                     </div>
-                                    <Link href="#" className={styles.cardLinkSecondary}>
+                                    <Link href="/products" className={styles.cardLinkSecondary}>
                                         Explore Learning
                                         <svg className={styles.cardLinkArrow} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                                     </Link>
@@ -214,7 +214,7 @@ export default function Services() {
                                             </ul>
                                         </div>
                                     </div>
-                                    <Link href="#" className={styles.cardLinkPrimary}>
+                                    <Link href="/products" className={styles.cardLinkPrimary}>
                                         View Robots
                                         <svg className={styles.cardLinkArrow} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                                     </Link>
@@ -242,7 +242,7 @@ export default function Services() {
                                             </ul>
                                         </div>
                                     </div>
-                                    <Link href="#" className={styles.cardLinkSecondary}>
+                                    <Link href="/products" className={styles.cardLinkSecondary}>
                                         See AI Kits
                                         <svg className={styles.cardLinkArrow} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                                     </Link>

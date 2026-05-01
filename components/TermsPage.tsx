@@ -63,7 +63,7 @@ export default function TermsPage() {
                                 <ScrollAnimation>
                                     <div className={styles.introBlock}>
                                         <p>
-                                            Welcome to RoboRise. These Terms of Service (&quot;Terms&quot;) govern your access to and use of the RoboRise website, products, and services. By accessing or using our platform, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use our services.
+                                            Welcome to RoboxRise. These Terms of Service (&quot;Terms&quot;) govern your access to and use of the RoboxRise website, products, and services. By accessing or using our platform, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use our services.
                                         </p>
                                     </div>
                                 </ScrollAnimation>
@@ -71,7 +71,7 @@ export default function TermsPage() {
                                 <ScrollAnimation>
                                     <div className={styles.policySection} id="acceptance">
                                         <h2 className={styles.sectionHeading}>1. Acceptance of Terms</h2>
-                                        <p>By creating an account, placing an order, or otherwise using the RoboRise website and services, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service, as well as our <Link href="/privacy" className={styles.inlineLink}>Privacy Policy</Link>.</p>
+                                        <p>By creating an account, placing an order, or otherwise using the RoboxRise website and services, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service, as well as our <Link href="/privacy" className={styles.inlineLink}>Privacy Policy</Link>.</p>
                                         <p>You must be at least 18 years of age to use our services independently. If you are under 18, you may only use our services with the involvement and consent of a parent or legal guardian. Educational institutions may purchase on behalf of minors in accordance with their established procurement processes.</p>
                                     </div>
                                 </ScrollAnimation>
@@ -79,7 +79,7 @@ export default function TermsPage() {
                                 <ScrollAnimation>
                                     <div className={styles.policySection} id="use-of-service">
                                         <h2 className={styles.sectionHeading}>2. Use of Service</h2>
-                                        <p>You agree to use the RoboRise platform only for lawful purposes and in accordance with these Terms. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p>
+                                        <p>You agree to use the RoboxRise platform only for lawful purposes and in accordance with these Terms. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p>
                                         <p>You agree not to:</p>
                                         <ul className={styles.list}>
                                             <li>Use our services for any illegal or unauthorized purpose</li>
@@ -137,18 +137,18 @@ export default function TermsPage() {
                                 <ScrollAnimation>
                                     <div className={styles.policySection} id="intellectual-property">
                                         <h2 className={styles.sectionHeading}>7. Intellectual Property</h2>
-                                        <p>All content on the RoboRise website — including text, graphics, logos, images, product designs, curriculum materials, video tutorials, software code, and the overall look and feel of the site — is the intellectual property of RoboRise Education Pvt. Ltd. and is protected by Indian and international copyright, trademark, and other intellectual property laws.</p>
+                                        <p>All content on the RoboxRise website — including text, graphics, logos, images, product designs, curriculum materials, video tutorials, software code, and the overall look and feel of the site — is the intellectual property of RoboxRise Education Pvt. Ltd. and is protected by Indian and international copyright, trademark, and other intellectual property laws.</p>
                                         <p>Our educational materials (textbooks, guides, worksheets, and video content) are licensed for personal or institutional educational use only. You may not reproduce, distribute, modify, or create derivative works from our content without express written permission.</p>
-                                        <p>The RoboRise name, logo, and product names are registered trademarks. You may not use these marks without our prior written consent.</p>
+                                        <p>The RoboxRise name, logo, and product names are registered trademarks. You may not use these marks without our prior written consent.</p>
                                     </div>
                                 </ScrollAnimation>
 
                                 <ScrollAnimation>
                                     <div className={styles.policySection} id="limitation-liability">
                                         <h2 className={styles.sectionHeading}>8. Limitation of Liability</h2>
-                                        <p>To the maximum extent permitted by applicable law, RoboRise Education Pvt. Ltd., its officers, directors, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or in connection with your use of our website, products, or services.</p>
+                                        <p>To the maximum extent permitted by applicable law, RoboxRise Education Pvt. Ltd., its officers, directors, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or in connection with your use of our website, products, or services.</p>
                                         <p>Our total liability to you for any claim arising from or related to these Terms or your use of our services shall not exceed the amount you paid to us for the specific product or service that gave rise to the claim.</p>
-                                        <p>RoboRise robotics kits are educational tools. While we design them with safety in mind, we are not liable for injuries or damages resulting from improper use, modification, or disregard of safety guidelines included with each product. Adult supervision is recommended for users under 14 years of age.</p>
+                                        <p>RoboxRise robotics kits are educational tools. While we design them with safety in mind, we are not liable for injuries or damages resulting from improper use, modification, or disregard of safety guidelines included with each product. Adult supervision is recommended for users under 14 years of age.</p>
                                     </div>
                                 </ScrollAnimation>
 
@@ -165,7 +165,7 @@ export default function TermsPage() {
                                         <h2 className={styles.sectionHeading}>10. Contact Information</h2>
                                         <p>If you have any questions about these Terms of Service, please contact us:</p>
                                         <div className={styles.contactBlock}>
-                                            <p><strong>RoboRise Education Pvt. Ltd.</strong></p>
+                                            <p><strong>RoboxRise Education Pvt. Ltd.</strong></p>
                                             <p>156, Krishna Market, Near Parmanu Nagar</p>
                                             <p>CAT Road, Indore 452012, India</p>
                                             <p>Email: <a href="mailto:legal@roborise.com" className={styles.inlineLink}>legal@roborise.com</a></p>

@@ -224,7 +224,7 @@ export default function BuyNowPage() {
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "",
         amount: orderData.razorpay_order.amount,
         currency: orderData.razorpay_order.currency,
-        name: "RoboRise",
+        name: "RoboxRise",
         description: `${product.name.split("–")[0].trim()} × ${qty}`,
         order_id: orderData.razorpay_order.id,
         handler: async (response: RazorpayResponse) => {

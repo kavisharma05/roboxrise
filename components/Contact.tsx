@@ -38,9 +38,8 @@ export default function Contact() {
                             <div className={styles.contactTop}>
                                 <div className="text-5xl">Get in touch.</div>
                                 <div className="text-color-secondary">
-                                    I want to help you overcome all mental and physical hurdles in
-                                    your everyday life. 6 Years ago, I was electrocuted with 277
-                                    volts.
+                                    Get in touch with our team for demos, pricing, curriculum
+                                    partnerships, or institutional deployment support.
                                 </div>
                             </div>
 

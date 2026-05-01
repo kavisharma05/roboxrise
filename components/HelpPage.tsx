@@ -8,7 +8,8 @@ import styles from "./HelpPage.module.css";
 const helpTopics = [
     {
         title: "Getting Started",
-        description: "New to RoboRise? Learn how to set up your first robotics kit and begin your journey.",
+        href: "/contact?topic=getting-started",
+        description: "New to RoboxRise? Learn how to set up your first robotics kit and begin your journey.",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
@@ -18,6 +19,7 @@ const helpTopics = [
     },
     {
         title: "Orders & Shipping",
+        href: "/orders",
         description: "Track your order, view shipping options, estimated delivery times, and more.",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
@@ -30,6 +32,7 @@ const helpTopics = [
     },
     {
         title: "Returns & Refunds",
+        href: "/contact?topic=returns-and-refunds",
         description: "Understand our return policy, initiate a return, or request a refund for your purchase.",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
@@ -40,6 +43,7 @@ const helpTopics = [
     },
     {
         title: "Product Support",
+        href: "/contact?topic=product-support",
         description: "Troubleshoot issues with your robotics kits, access manuals, and get technical help.",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
@@ -49,6 +53,7 @@ const helpTopics = [
     },
     {
         title: "Account & Billing",
+        href: "/login",
         description: "Manage your account settings, update payment methods, and view billing history.",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
@@ -59,6 +64,7 @@ const helpTopics = [
     },
     {
         title: "Warranties",
+        href: "/contact?topic=warranty-support",
         description: "Learn about warranty coverage, how to file a claim, and what's included.",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
@@ -79,7 +85,7 @@ const faqs = [
     },
     {
         question: "What does the warranty cover?",
-        answer: "All RoboRise robotics kits come with a 1-year manufacturer's warranty covering defects in materials and workmanship. This includes replacement of faulty components such as motors, sensors, and controller boards. The warranty does not cover damage from misuse or modifications.",
+        answer: "All RoboxRise robotics kits come with a 1-year manufacturer's warranty covering defects in materials and workmanship. This includes replacement of faulty components such as motors, sensors, and controller boards. The warranty does not cover damage from misuse or modifications.",
     },
     {
         question: "Do you offer bulk ordering for schools?",
@@ -157,13 +163,13 @@ export default function HelpPage() {
                                         </div>
                                         <h3 className={styles.topicTitle}>{topic.title}</h3>
                                         <p className={styles.topicDescription}>{topic.description}</p>
-                                        <span className={styles.topicLink}>
+                                        <Link href={topic.href} className={styles.topicLink}>
                                             Learn More
                                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                                 <path d="M5 12h14" />
                                                 <path d="m12 5 7 7-7 7" />
                                             </svg>
-                                        </span>
+                                        </Link>
                                     </div>
                                 </ScrollAnimation>
                             ))}

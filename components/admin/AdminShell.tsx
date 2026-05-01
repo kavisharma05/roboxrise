@@ -22,7 +22,7 @@ export default function AdminShell({
       <aside className={styles.sidebar}>
         <div className={styles.sidebarHeader}>
           <Link href="/admin" className={styles.logo}>
-            RoboRise
+            RoboxRise
           </Link>
           <span className={styles.badge}>Admin</span>
         </div>

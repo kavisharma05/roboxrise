@@ -1,36 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "./Hero.module.css";
 import HeroContactForm from "./HeroContactForm";
 
 export default function Hero() {
-    const [isDesktop, setIsDesktop] = useState(false);
-    const [isDesktopFormOpen, setIsDesktopFormOpen] = useState(false);
-
-    useEffect(() => {
-        const mediaQuery = window.matchMedia("(min-width: 992px)");
-        const syncDesktopState = () => {
-            const desktopView = mediaQuery.matches;
-            setIsDesktop(desktopView);
-            if (!desktopView) {
-                setIsDesktopFormOpen(true);
-            } else {
-                setIsDesktopFormOpen(false);
-            }
-        };
-
-        syncDesktopState();
-        mediaQuery.addEventListener("change", syncDesktopState);
-
-        return () => {
-            mediaQuery.removeEventListener("change", syncDesktopState);
-        };
-    }, []);
-
-    const isFormVisible = !isDesktop || isDesktopFormOpen;
-
     return (
         <section className={styles.sectionFull}>
             {/* Centered Hero Text */}
@@ -57,15 +31,12 @@ export default function Hero() {
                                 <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
                         </Link>
-                        <button
-                            type="button"
+                        <Link
+                            href="/contact"
                             className={`${styles.ctaSecondary} ${styles.ctaSecondaryButton}`}
-                            onClick={() => setIsDesktopFormOpen((open) => !open)}
-                            aria-expanded={isFormVisible}
-                            aria-controls="hero-contact-form"
                         >
                             Book a Demo
-                        </button>
+                        </Link>
                     </div>
                     <div className={styles.trustBadge}>
                         <span className={styles.trustIcon}>✦</span>
@@ -77,7 +48,7 @@ export default function Hero() {
             {/* Contact Form - Bottom Right */}
             <div
                 id="hero-contact-form"
-                className={`${styles.heroFormWrap} ${!isFormVisible ? styles.heroFormWrapHidden : ""}`}
+                className={styles.heroFormWrap}
             >
                 <HeroContactForm />
             </div>
@@ -87,7 +58,7 @@ export default function Hero() {
                 <div className={styles.bgImg}>
                     {/* Mobile Image - shown on tablet and below */}
                     <img
-                        src="https://wubflow-shield.NOCODEXPORT.DEV/6824160149c9e88dc8ac7225/68280095df66237566c73810_mobile.webp"
+                        src="https://res.cloudinary.com/dixayfqq8/image/upload/v1770269617/section1a_okfphc.jpg"
                         alt=""
                         className={`${styles.imageMain} ${styles.showTablet}`}
                     />

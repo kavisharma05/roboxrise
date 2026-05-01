@@ -25,7 +25,7 @@ RESEND_API_KEY=re_xxxxxxxxxxxx
 Use an email from your verified domain:
 
 ```env
-EMAIL_FROM="RoboRise Orders <orders@yourdomain.com>"
+EMAIL_FROM="RoboxRise Orders <orders@yourdomain.com>"
 ```
 
 ## 4. Set Notification Inbox

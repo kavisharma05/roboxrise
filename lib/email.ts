@@ -16,7 +16,7 @@ function getResend(): Resend | null {
   return new Resend(key);
 }
 
-const FROM_EMAIL = process.env.EMAIL_FROM || "RoboRise Orders <orders@yourdomain.com>";
+const FROM_EMAIL = process.env.EMAIL_FROM || "RoboxRise Orders <orders@yourdomain.com>";
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "";
 
 interface OrderItemData {

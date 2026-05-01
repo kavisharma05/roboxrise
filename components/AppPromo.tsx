@@ -14,7 +14,7 @@ export default function AppPromo() {
                             <div className={styles.appContentInformationWrapper}>
                                 <div className={styles.appContentInformation}>
                                     <h3 className="app-display">
-                                        RoboRise, your partner <br />
+                                        RoboxRise, your partner <br />
                                         in robotics education.
                                     </h3>
                                     <div className={styles.appTextWrap}>

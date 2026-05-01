@@ -5,22 +5,22 @@ import styles from "./Testimonials.module.css";
 
 const testimonials = [
     {
-        name: "Dr. Sarah Chen",
-        role: "Professor, MIT Robotics Lab",
-        text: "Roborise bridges theory and industry perfectly. Our students now graduate with hands-on experience that employers actually value.",
-        image: "https://wubflow-shield.NOCODEXPORT.DEV/6824160149c9e88dc8ac7225/682417fddfe626eeef3918c5_image1.webp",
+        name: "Priya M.",
+        role: "STEM Program Lead, Partner Institution",
+        text: "RoboxRise helped us move from theory-heavy lessons to practical robotics projects that students can build and iterate in class.",
+        initials: "PM",
     },
     {
-        name: "Michael Torres",
-        role: "Director of Innovation, TechEd Institute",
-        text: "The modular approach to teaching robotics fundamentals has transformed how we deliver our curriculum. Student engagement is at an all-time high.",
-        image: "https://wubflow-shield.NOCODEXPORT.DEV/6824160149c9e88dc8ac7225/682417fddfe626eeef3918c8_image2.webp",
+        name: "Rahul K.",
+        role: "Lab Coordinator, Engineering College",
+        text: "The modular kits, documentation, and faculty support made deployment straightforward across multiple student batches.",
+        initials: "RK",
     },
     {
-        name: "Emily Rodriguez",
-        role: "STEM Coordinator, Valley Schools",
-        text: "Finally, an educational robotics platform that doesn't feel like a toy. Our students are learning real-world skills from day one.",
-        image: "https://wubflow-shield.NOCODEXPORT.DEV/6824160149c9e88dc8ac7225/682417fddfe626eeef3918ce_image3.webp",
+        name: "Anita S.",
+        role: "Robotics Faculty, K-12 Network",
+        text: "Our learners now get hands-on exposure to robotics workflows that map directly to modern automation careers.",
+        initials: "AS",
     },
 ];
 
@@ -83,11 +83,9 @@ export default function Testimonials() {
                                         &ldquo;{testimonial.text}&rdquo;
                                     </p>
                                     <div className={styles.authorSection}>
-                                        <img
-                                            src={testimonial.image}
-                                            alt={testimonial.name}
-                                            className={styles.authorImage}
-                                        />
+                                        <div className={styles.authorImage} aria-hidden="true">
+                                            {testimonial.initials}
+                                        </div>
                                         <div className={styles.authorInfo}>
                                             <span className={styles.authorName}>
                                                 {testimonial.name}

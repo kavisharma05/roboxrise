@@ -1,39 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { createClient } from "@/lib/supabase/client";
+import { useForm, ValidationError } from "@formspree/react";
 import styles from "./HeroContactForm.module.css";
 
 export default function HeroContactForm() {
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
-    });
-    const [submitted, setSubmitted] = useState(false);
-    const supabase = createClient();
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        if (!supabase) return;
-
-        await supabase.from("contact_submissions").insert({
-            source: "hero",
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone || null,
-            message: formData.message,
-        });
-
-        setSubmitted(true);
-        setFormData({ name: "", email: "", phone: "", message: "" });
-        setTimeout(() => setSubmitted(false), 4000);
-    };
+    const [state, handleSubmit] = useForm("mpqbwznl");
 
     return (
         <div className={styles.formCard}>
@@ -47,7 +18,7 @@ export default function HeroContactForm() {
                 </p>
             </div>
 
-            {submitted ? (
+            {state.succeeded ? (
                 <div className={styles.successMessage}>
                     <div className={styles.successIconWrap}>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -61,13 +32,13 @@ export default function HeroContactForm() {
                 </div>
             ) : (
                 <form onSubmit={handleSubmit} className={styles.form}>
+                    <input type="hidden" name="source" value="hero-form" />
+                    <input type="hidden" name="subject" value="Demo Request" />
                     <div className={styles.inputGroup}>
                         <input
                             type="text"
                             name="name"
                             placeholder="Your Name"
-                            value={formData.name}
-                            onChange={handleChange}
                             required
                             className={styles.input}
                         />
@@ -82,10 +53,13 @@ export default function HeroContactForm() {
                             type="email"
                             name="email"
                             placeholder="Email Address"
-                            value={formData.email}
-                            onChange={handleChange}
                             required
                             className={styles.input}
+                        />
+                        <ValidationError
+                            prefix="Email"
+                            field="email"
+                            errors={state.errors}
                         />
                         <svg className={styles.inputIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                             <rect x="2" y="4" width="20" height="16" rx="2" />
@@ -98,8 +72,6 @@ export default function HeroContactForm() {
                             type="tel"
                             name="phone"
                             placeholder="Phone Number"
-                            value={formData.phone}
-                            onChange={handleChange}
                             className={styles.input}
                         />
                         <svg className={styles.inputIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -111,26 +83,29 @@ export default function HeroContactForm() {
                         <textarea
                             name="message"
                             placeholder="Your Message"
-                            value={formData.message}
-                            onChange={handleChange}
                             required
                             rows={3}
                             className={`${styles.input} ${styles.textarea}`}
+                        />
+                        <ValidationError
+                            prefix="Message"
+                            field="message"
+                            errors={state.errors}
                         />
                         <svg className={`${styles.inputIcon} ${styles.textareaIcon}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                         </svg>
                     </div>
 
-                    <button type="submit" className={styles.submitBtn} disabled={!supabase}>
-                        <span>Send Message</span>
+                    <button type="submit" className={styles.submitBtn} disabled={state.submitting}>
+                        <span>{state.submitting ? "Sending..." : "Send Message"}</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <line x1="22" y1="2" x2="11" y2="13" />
                             <polygon points="22 2 15 22 11 13 2 9 22 2" />
                         </svg>
                     </button>
-                    {!supabase && (
-                        <div className={styles.successText}>Contact form is temporarily unavailable.</div>
+                    {state.errors && state.errors.length > 0 && (
+                        <div className={styles.successText}>Unable to submit right now. Please check your details and try again.</div>
                     )}
                 </form>
             )}

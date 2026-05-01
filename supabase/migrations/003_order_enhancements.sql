@@ -1,5 +1,5 @@
 -- ============================================================
--- RoboRise — Migration 003: Order enhancements
+-- RoboxRise — Migration 003: Order enhancements
 -- Adds customer name + address snapshot to orders,
 -- admin role to profiles, and admin RLS policies.
 -- ============================================================

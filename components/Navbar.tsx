@@ -119,7 +119,17 @@ export default function Navbar({ theme = "default" }: NavbarProps) {
                     </div>
 
                     <Link href="/" className={styles.logoLink}>
-                        <img src="/roboriselogo.svg" alt="RoboRise" className={styles.logo} />
+                        {/* Desktop/tablet logo vs mobile inverted-asset logo */}
+                        <img
+                            src="/roboriselogo.svg"
+                            alt="RoboxRise"
+                            className={`${styles.logo} ${styles.logoDesktop}`}
+                        />
+                        <img
+                            src="/roboriselogoinvert.svg"
+                            alt="RoboxRise"
+                            className={`${styles.logo} ${styles.logoMobile}`}
+                        />
                     </Link>
 
                     <div className={`${styles.initialRightGroup} hide-mobile-portrait`}>
@@ -160,7 +170,7 @@ export default function Navbar({ theme = "default" }: NavbarProps) {
             <nav className={`${styles.floatingNav} ${isScrolled ? styles.visible : ""}`}>
                 <div className={styles.floatingNavContent}>
                     <Link href="/" className={styles.floatingLogoLink}>
-                        <img src="/roboriselogoinvert.svg" alt="RoboRise" className={styles.floatingLogo} />
+                        <img src="/roboriselogoinvert.svg" alt="RoboxRise" className={styles.floatingLogo} />
                     </Link>
                     <nav className={styles.navWrap}>
                         <div className={styles.navbarList}>
@@ -214,7 +224,7 @@ export default function Navbar({ theme = "default" }: NavbarProps) {
             {/* ── Mobile: Slide-in Drawer ── */}
             <div className={`${styles.mobileMenuDrawer} ${isMobileMenuOpen ? styles.open : ""}`}>
                 <div className={styles.drawerHeader}>
-                    <img src="/roboriselogo.svg" alt="RoboRise" className={styles.drawerLogo} />
+                    <img src="/roboriselogo.svg" alt="RoboxRise" className={styles.drawerLogo} />
                     <button className={styles.drawerClose} onClick={closeMenu} aria-label="Close menu">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M18 6L6 18M6 6l12 12" />

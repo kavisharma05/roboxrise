@@ -62,7 +62,7 @@ export default function PrivacyPage() {
                                 <ScrollAnimation>
                                     <div className={styles.introBlock}>
                                         <p>
-                                            At RoboRise (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, purchase our robotics education kits, or use our services. By using our platform, you consent to the practices described in this policy.
+                                            At RoboxRise (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, purchase our robotics education kits, or use our services. By using our platform, you consent to the practices described in this policy.
                                         </p>
                                     </div>
                                 </ScrollAnimation>
@@ -151,7 +151,7 @@ export default function PrivacyPage() {
                                 <ScrollAnimation>
                                     <div className={styles.policySection} id="childrens-privacy">
                                         <h2 className={styles.sectionHeading}>7. Children&apos;s Privacy</h2>
-                                        <p>RoboRise products are designed for learners of all ages, but our website and e-commerce services are not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13 without verifiable parental consent.</p>
+                                        <p>RoboxRise products are designed for learners of all ages, but our website and e-commerce services are not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13 without verifiable parental consent.</p>
                                         <p>For our school and institutional programs, all student data is collected and managed through the educational institution, which is responsible for obtaining appropriate parental consent. We comply with applicable regulations including COPPA and similar child privacy laws.</p>
                                         <p>If you believe we have inadvertently collected information from a child under 13, please contact us immediately and we will promptly delete the information.</p>
                                     </div>
@@ -170,7 +170,7 @@ export default function PrivacyPage() {
                                         <h2 className={styles.sectionHeading}>9. Contact Us</h2>
                                         <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
                                         <div className={styles.contactBlock}>
-                                            <p><strong>RoboRise Education Pvt. Ltd.</strong></p>
+                                            <p><strong>RoboxRise Education Pvt. Ltd.</strong></p>
                                             <p>156, Krishna Market, Near Parmanu Nagar</p>
                                             <p>CAT Road, Indore 452012, India</p>
                                             <p>Email: <a href="mailto:privacy@roborise.com" className={styles.inlineLink}>privacy@roborise.com</a></p>
