@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Montserrat, Inter } from "next/font/google";
 import "./globals.css";
 import "@/bones/registry";
@@ -21,19 +21,50 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-    metadataBase: new URL("https://roborise.com"),
+    metadataBase: new URL("https://roboxrise.in"),
     title: {
-        default: "RoboxRise | Robotics & AI Education Platform",
+        default: "RoboxRise | Robotics Kits for Universities & Schools | AI STEM Education",
         template: "%s | RoboxRise",
     },
     description:
-        "Embodied AI robotics kits and mini industrial arms designed for classrooms, labs, and future engineers. Build real robots. Teach real AI.",
+        "RoboxRise delivers industrial-grade robotic arms and AI kits designed for universities, schools, and labs. Trusted by 100+ institutions.",
+    keywords: [
+        "robotics kits for universities",
+        "educational robotic arm",
+        "AI STEM education",
+        "ROS2 robotics",
+        "school robotics lab",
+        "STEM lab equipment",
+        "robotic arm India",
+    ],
+    authors: [{ name: "RoboxRise" }],
+    creator: "RoboxRise",
+    publisher: "RoboxRise",
+    icons: {
+        icon: [
+            { url: "/icon", sizes: "32x32", type: "image/png" },
+            { url: "/roboriselogo.svg", type: "image/svg+xml" },
+        ],
+        apple: [{ url: "/apple-icon", sizes: "180x180", type: "image/png" }],
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
+    alternates: {
+        canonical: "/",
+        languages: {
+            en: "/",
+            "en-IN": "/",
+        },
+    },
     openGraph: {
-        title: "RoboxRise | Robotics & AI Education Platform",
+        title: "RoboxRise | Robotics & AI Kits for Schools & Universities",
         description:
-            "Embodied AI robotics kits and mini industrial arms designed for classrooms, labs, and future engineers. Build real robots. Teach real AI.",
+            "Hands-on robotics kits with curriculum, certification, and support for classrooms, labs, and future engineers.",
         type: "website",
-        url: "https://roborise.com",
+        url: "https://roboxrise.in",
+        siteName: "RoboxRise",
         images: [
             {
                 url: "/roboriselogo.svg",
@@ -45,11 +76,20 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "RoboxRise | Robotics & AI Education Platform",
+        title: "RoboxRise | Robotics Education Platform",
         description:
-            "Embodied AI robotics kits and mini industrial arms designed for classrooms, labs, and future engineers. Build real robots. Teach real AI.",
+            "Industrial-grade robotic arms and AI kits for STEM classrooms, labs, and universities.",
         images: ["/roboriselogo.svg"],
     },
+    other: {
+        "geo.region": "IN",
+        "geo.placename": "India",
+    },
+};
+
+export const viewport: Viewport = {
+    width: "device-width",
+    initialScale: 1,
 };
 
 export default function RootLayout({
@@ -57,6 +97,17 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const organizationSchema = {
+        "@context": "https://schema.org",
+        "@type": ["Organization", "EducationalOrganization"],
+        name: "RoboxRise",
+        url: "https://roboxrise.in",
+        logo: "https://roboxrise.in/roboriselogo.svg",
+        description:
+            "Industrial-grade robotic arms and AI kits for universities, schools, and STEM labs.",
+        areaServed: "IN",
+    };
+
     return (
         <html
             lang="en"
@@ -67,6 +118,12 @@ export default function RootLayout({
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `(function(){try{var k='roborise-intro-loader-seen';if(!sessionStorage.getItem(k))document.documentElement.classList.add('intro-loader-active');}catch(e){}})();`,
+                    }}
+                />
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(organizationSchema),
                     }}
                 />
             </head>

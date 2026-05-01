@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { allProducts } from "@/lib/product-data";
 
-const BASE_URL = "https://roborise.com";
+const BASE_URL = "https://roboxrise.in";
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const staticRoutes = [

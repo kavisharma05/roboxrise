@@ -53,7 +53,7 @@ export default function ProductPage({ params }: PageProps) {
     brand: { "@type": "Brand", name: "RoboxRise" },
     offers: {
       "@type": "Offer",
-      url: `https://roborise.com/products/${product.slug}`,
+      url: `https://roboxrise.in/products/${product.slug}`,
       priceCurrency: product.currency,
       price: product.price,
       availability:
