@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const product = getProductBySlug(params.slug) ?? allProducts[0];
 
   return {
-    title: `${product.name} | RoboRise`,
+    title: `${product.name} | RoboxRise`,
     description: product.usps.slice(0, 3).join(". ") + ".",
     openGraph: {
       title: product.name,
@@ -50,7 +50,7 @@ export default function ProductPage({ params }: PageProps) {
     image: product.images.map((img: { src: string }) => img.src),
     description: product.usps.join(". "),
     sku: product.sku,
-    brand: { "@type": "Brand", name: "RoboRise" },
+    brand: { "@type": "Brand", name: "RoboxRise" },
     offers: {
       "@type": "Offer",
       url: `https://roborise.com/products/${product.slug}`,

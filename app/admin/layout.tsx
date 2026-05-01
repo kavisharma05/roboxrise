@@ -3,8 +3,8 @@ import { createClient } from "@/lib/supabase/server";
 import AdminShell from "@/components/admin/AdminShell";
 
 export const metadata = {
-  title: "Admin — RoboRise",
-  description: "RoboRise admin dashboard",
+  title: "Admin — RoboxRise",
+  description: "RoboxRise admin dashboard",
 };
 
 export default async function AdminLayout({

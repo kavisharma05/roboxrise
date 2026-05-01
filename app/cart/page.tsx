@@ -5,7 +5,7 @@ import CartPage from "@/components/CartPage";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-    title: "Your Cart | RoboRise",
+    title: "Your Cart | RoboxRise",
     description: "Review the items in your cart before checkout.",
 };
 

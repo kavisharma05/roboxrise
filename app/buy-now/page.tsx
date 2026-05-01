@@ -6,8 +6,8 @@ import BuyNowPage from "@/components/BuyNowPage";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Checkout | RoboRise",
-  description: "Complete your purchase — secure checkout with free shipping on all RoboRise robotics kits.",
+  title: "Checkout | RoboxRise",
+  description: "Complete your purchase — secure checkout with free shipping on all RoboxRise robotics kits.",
 };
 
 export default function BuyNow() {

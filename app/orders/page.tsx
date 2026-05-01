@@ -7,8 +7,8 @@ import OrdersPage from "@/components/OrdersPage";
 import { createClient } from "@/lib/supabase/server";
 
 export const metadata = {
-  title: "My Orders — RoboRise",
-  description: "View your RoboRise order history.",
+  title: "My Orders — RoboxRise",
+  description: "View your RoboxRise order history.",
 };
 
 export default async function Orders() {

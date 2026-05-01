@@ -7,7 +7,7 @@ import OrderDetailPage from "@/components/OrderDetailPage";
 import { createClient } from "@/lib/supabase/server";
 
 export const metadata = {
-  title: "Order Details — RoboRise",
+  title: "Order Details — RoboxRise",
   description: "View your order details.",
 };
 

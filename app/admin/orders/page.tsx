@@ -3,7 +3,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import AdminOrdersList from "@/components/admin/AdminOrdersList";
 
 export const metadata = {
-  title: "Orders — Admin — RoboRise",
+  title: "Orders — Admin — RoboxRise",
 };
 
 export const dynamic = "force-dynamic";

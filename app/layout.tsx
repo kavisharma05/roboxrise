@@ -21,14 +21,34 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-    title: "RoboRise - Robotics & AI Education Platform",
+    metadataBase: new URL("https://roborise.com"),
+    title: {
+        default: "RoboxRise | Robotics & AI Education Platform",
+        template: "%s | RoboxRise",
+    },
     description:
         "Embodied AI robotics kits and mini industrial arms designed for classrooms, labs, and future engineers. Build real robots. Teach real AI.",
     openGraph: {
-        title: "RoboRise - Robotics & AI Education Platform",
+        title: "RoboxRise | Robotics & AI Education Platform",
         description:
             "Embodied AI robotics kits and mini industrial arms designed for classrooms, labs, and future engineers. Build real robots. Teach real AI.",
         type: "website",
+        url: "https://roborise.com",
+        images: [
+            {
+                url: "/roboriselogo.svg",
+                width: 1200,
+                height: 630,
+                alt: "RoboxRise",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "RoboxRise | Robotics & AI Education Platform",
+        description:
+            "Embodied AI robotics kits and mini industrial arms designed for classrooms, labs, and future engineers. Build real robots. Teach real AI.",
+        images: ["/roboriselogo.svg"],
     },
 };
 

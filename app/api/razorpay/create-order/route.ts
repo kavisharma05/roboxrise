@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import razorpay from "@/lib/razorpay";
+import { getRazorpayClient } from "@/lib/razorpay";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { getProductBySlug } from "@/lib/product-data";
@@ -204,6 +204,14 @@ export async function POST(req: NextRequest) {
         zero_amount: true,
         email_triggered: true,
       });
+    }
+
+    const razorpay = getRazorpayClient();
+    if (!razorpay) {
+      return NextResponse.json(
+        { error: "Razorpay is not configured" },
+        { status: 500 },
+      );
     }
 
     let rzpOrder;
