@@ -508,6 +508,15 @@
     object-fit: cover;
 }
 
+.productImageNote {
+    margin: 0;
+    padding: 0.35rem 0.875rem 0;
+    font-family: var(--font-inter), 'Inter', sans-serif;
+    font-size: 0.625rem;
+    line-height: 1.35;
+    color: rgba(255, 255, 255, 0.58);
+}
+
 .productInfo {
     padding: 0.625rem 0.875rem 0.5rem;
     display: flex;

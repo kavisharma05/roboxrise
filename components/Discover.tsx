@@ -48,7 +48,7 @@ export default function Discover() {
                                 <ScrollAnimation delay={200}>
                                     <img
                                         src="https://res.cloudinary.com/dixayfqq8/image/upload/v1770269617/section1a_okfphc.jpg"
-                                        alt="Roborise robotics kit"
+                                        alt="RoboxRise robotics kit"
                                     />
                                 </ScrollAnimation>
                             </div>
@@ -58,7 +58,7 @@ export default function Discover() {
                                 <ScrollAnimation delay={300}>
                                     <img
                                         src="https://res.cloudinary.com/dixayfqq8/image/upload/v1770269622/section1b_pmqjf3.jpg"
-                                        alt="Roborise in action"
+                                        alt="RoboxRise in action"
                                     />
                                 </ScrollAnimation>
                             </div>
@@ -68,7 +68,7 @@ export default function Discover() {
                                 <ScrollAnimation delay={400}>
                                     <img
                                         src="https://res.cloudinary.com/dixayfqq8/image/upload/v1770269618/section1c_fvuwyb.jpg"
-                                        alt="Roborise robotics education"
+                                        alt="RoboxRise robotics education"
                                     />
                                 </ScrollAnimation>
                             </div>

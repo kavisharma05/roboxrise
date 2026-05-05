@@ -145,6 +145,14 @@
   display: none;
 }
 
+.imageDisclaimer {
+  margin-top: 0.625rem;
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-size: 0.6875rem;
+  line-height: 1.35;
+  color: var(--color-text-tertiary);
+}
+
 /* Lightbox Overlay */
 .lightbox {
   position: fixed;

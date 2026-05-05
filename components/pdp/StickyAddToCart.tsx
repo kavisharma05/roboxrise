@@ -61,11 +61,6 @@ export default function StickyAddToCart({ product, addToCartRef }: Props) {
             {formatProductPriceDisplay(product)}
           </span>
         )}
-        {!isContactQuoteOnly && product.stock > 0 && (
-          <span className={styles.stickyStock}>
-            {product.stock < 5 ? `Only ${product.stock} left` : "In Stock"}
-          </span>
-        )}
       </div>
       {isContactQuoteOnly ? (
         <Link href="/contact" className={styles.stickyBtn}>

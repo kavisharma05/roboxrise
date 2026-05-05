@@ -528,7 +528,7 @@ export default function BuyNowPage() {
                             id="bn-email"
                             name="email"
                             className={`${styles.fieldInput} ${errors.email ? styles.fieldError : ""}`}
-                            placeholder="you@example.com"
+                            placeholder="gunalan@r-tech.in"
                             value={form.email}
                             onChange={handleChange}
                           />

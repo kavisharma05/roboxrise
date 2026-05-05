@@ -7,17 +7,19 @@ import { formatProductPriceDisplay, type Product } from "@/lib/product-data";
 import { useCart } from "@/context/CartContext";
 import styles from "./ProductInfo.module.css";
 
+/** Short note below trust badges on PDPs — replace with your preferred wording. */
+const PDP_FOOTNOTE =
+  "Specifications and availability may vary by configuration. Contact us for exact details before ordering.";
+
 interface Props {
   product: Product;
   loading?: boolean;
-  onScrollToReviews?: () => void;
   addToCartRef?: React.RefObject<HTMLButtonElement>;
 }
 
 export default function ProductInfo({
   product,
   loading,
-  onScrollToReviews,
   addToCartRef,
 }: Props) {
   const router = useRouter();
@@ -35,7 +37,6 @@ export default function ProductInfo({
 
   const isContactQuoteOnly = product.price === 0 && !product.showZeroRupee;
   const isOutOfStock = product.stock === 0;
-  const isLowStock = product.stock > 0 && product.stock < 5;
   const hasSale =
     !product.priceRange &&
     product.price > 0 &&
@@ -96,9 +97,6 @@ export default function ProductInfo({
     );
   }
 
-  const fullStars = Math.floor(product.rating);
-  const hasHalf = product.rating - fullStars >= 0.3;
-
   return (
     <div className={styles.panel}>
       {/* Category pill */}
@@ -109,23 +107,7 @@ export default function ProductInfo({
       {/* 3. Title */}
       <h1 className={styles.title}>{product.name}</h1>
 
-      {/* 4. Rating Row */}
-      <div className={styles.ratingRow}>
-        <div className={styles.stars} aria-label={`Rating: ${product.rating} out of 5`}>
-          {Array.from({ length: 5 }).map((_, i) => (
-            <span key={i} className={i >= fullStars + (hasHalf ? 1 : 0) ? styles.starEmpty : ""}>
-              {i < fullStars ? "★" : i === fullStars && hasHalf ? "★" : "☆"}
-            </span>
-          ))}
-        </div>
-        <span className={styles.ratingText}>{product.rating}</span>
-        <span className={styles.ratingDivider} />
-        <button className={styles.reviewLink} onClick={onScrollToReviews}>
-          {product.reviewCount} reviews
-        </button>
-      </div>
-
-      {/* 5. Price */}
+      {/* 4. Price */}
       <div className={styles.priceWrap}>
         {isContactQuoteOnly ? (
           <span className={styles.contactPrice}>Contact for Pricing</span>
@@ -177,11 +159,6 @@ export default function ProductInfo({
 
       {/* 8. Divider */}
       <div className={styles.divider} />
-
-      {/* Low stock warning */}
-      {isLowStock && !isContactQuoteOnly && (
-        <p className={styles.lowStock}>Only {product.stock} left in stock - order soon.</p>
-      )}
 
       {/* 9. Quantity Stepper — only if priced and in stock */}
       {!isOutOfStock && !isContactQuoteOnly && (
@@ -267,17 +244,9 @@ export default function ProductInfo({
         </button>
       </div>
 
-      {/* 12. SKU + Stock Badge */}
+      {/* 12. SKU */}
       <div className={styles.metaRow}>
         <span className={styles.skuText}>SKU: {product.sku}</span>
-        <span
-          className={`${styles.stockBadge} ${
-            isOutOfStock ? styles.stockOut : isLowStock ? styles.stockLow : styles.stockInStock
-          }`}
-        >
-          <span className={styles.stockDot} />
-          {isOutOfStock ? "Out of Stock" : isLowStock ? `Only ${product.stock} left` : "In Stock"}
-        </span>
       </div>
 
       {/* 13. Trust Badges */}
@@ -291,14 +260,12 @@ export default function ProductInfo({
           <span className={styles.trustText}>Secure Checkout</span>
         </div>
         <div className={styles.trustItem}>
-          <span className={styles.trustIconSvg}><ReturnIcon /></span>
-          <span className={styles.trustText}>30-Day Returns</span>
-        </div>
-        <div className={styles.trustItem}>
           <span className={styles.trustIconSvg}><ShieldIcon /></span>
           <span className={styles.trustText}>1-Year Warranty</span>
         </div>
       </div>
+
+      <p className={styles.pdpNote}>{PDP_FOOTNOTE}</p>
     </div>
   );
 }
@@ -369,14 +336,6 @@ function LockIcon() {
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
       <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
       <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-    </svg>
-  );
-}
-
-function ReturnIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M9 14l-4-4 4-4" /><path d="M5 10h11a4 4 0 0 1 0 8h-1" />
     </svg>
   );
 }

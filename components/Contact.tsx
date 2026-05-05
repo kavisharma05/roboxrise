@@ -28,7 +28,7 @@ export default function Contact() {
                         <ScrollAnimation className={styles.contactVisual}>
                             <img
                                 src="https://res.cloudinary.com/dixayfqq8/image/upload/v1770551507/freepik__a-studio-shot-features-three-robotic-arms-lined-up__26065_hyzxzu.png"
-                                alt="RoboRise industrial robotic arms for STEM classrooms and university labs"
+                                alt="RoboxRise industrial robotic arms for STEM classrooms and university labs"
                                 className="image"
                             />
                         </ScrollAnimation>

@@ -176,7 +176,7 @@ export default function Services() {
                                         <div className={styles.mindText}>
                                             <div className={styles.cardTitle}>Learn Robotics Fundamentals</div>
                                             <p className={styles.cardDescription}>
-                                                Start with motion control, kinematics, electronics, and programming. Roborise systems guide students through core robotics concepts using hands-on experiments and structured curriculum.
+                                                Start with motion control, kinematics, electronics, and programming. RoboxRise systems guide students through core robotics concepts using hands-on experiments and structured curriculum.
                                             </p>
                                             <ul className={styles.bulletList}>
                                                 <li>Forward &amp; inverse kinematics</li>

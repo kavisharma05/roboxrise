@@ -130,7 +130,7 @@ export default function TermsPage() {
                                             <li><strong>Opened Products:</strong> Products that have been opened and used may be returned if they are defective. Products opened for reasons other than defect may be subject to a restocking fee of up to 15%.</li>
                                             <li><strong>Digital Content:</strong> Downloadable educational materials, video courses, and software licenses are non-refundable once accessed or downloaded.</li>
                                         </ul>
-                                        <p>To initiate a return, contact our support team at returns@roborise.com or through your account dashboard. Refunds are typically processed within 7–10 business days after we receive and inspect the returned product.</p>
+                                        <p>To initiate a return, contact our support team at gunalan@r-tech.in or through your account dashboard. Refunds are typically processed within 7–10 business days after we receive and inspect the returned product.</p>
                                     </div>
                                 </ScrollAnimation>
 
@@ -168,7 +168,7 @@ export default function TermsPage() {
                                             <p><strong>RoboxRise Education Pvt. Ltd.</strong></p>
                                             <p>156, Krishna Market, Near Parmanu Nagar</p>
                                             <p>CAT Road, Indore 452012, India</p>
-                                            <p>Email: <a href="mailto:legal@roborise.com" className={styles.inlineLink}>legal@roborise.com</a></p>
+                                            <p>Email: <a href="mailto:gunalan@r-tech.in" className={styles.inlineLink}>gunalan@r-tech.in</a></p>
                                             <p>Phone: <a href="tel:6264941006" className={styles.inlineLink}>+91 62649 41006</a></p>
                                         </div>
                                         <p>

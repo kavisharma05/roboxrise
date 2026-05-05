@@ -32,11 +32,6 @@
   border: none;
   cursor: pointer;
   white-space: nowrap;
-  transition: color var(--transition-fast);
-}
-
-.tabBtn:hover {
-  color: #1a1a1a;
 }
 
 .tabBtnActive {
@@ -70,6 +65,8 @@
   border-radius: var(--radius-lg);
   padding: 1.25rem;
   background: linear-gradient(180deg, #fffaf7 0%, #ffffff 100%);
+  /* No entrance animation: transform animation + iframe compositing caused scroll jitter */
+  animation: none;
 }
 
 .videoTitle {
@@ -87,7 +84,16 @@
   margin: 0 0 1rem;
 }
 
+.videoInteractHint {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin: -0.35rem 0 0.65rem;
+  line-height: 1.45;
+}
+
 .videoFrameWrap {
+  position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
   border-radius: var(--radius-md);
@@ -100,6 +106,29 @@
   width: 100%;
   height: 100%;
   border: 0;
+  display: block;
+}
+
+/* Lets wheel events reach the page while the transparent shield sits on top */
+.videoFrameNonInteractive {
+  pointer-events: none;
+}
+
+.videoScrollShield {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: inherit;
+  background: transparent;
+  cursor: pointer;
+}
+
+.videoScrollShield:focus-visible {
+  outline: 2px solid #ff6b35;
+  outline-offset: 2px;
 }
 
 .videoPlaceholder {

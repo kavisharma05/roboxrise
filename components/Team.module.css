@@ -88,10 +88,18 @@
 
 .teamItemImage {
     position: relative;
-    aspect-ratio: 3 / 4;
     border-radius: 1.5rem;
-    overflow: hidden;
+    background-color: color-mix(in srgb, var(--color-bg-primary) 92%, #888);
     transition: box-shadow 0.3s ease;
+}
+
+/* Full product photo — overrides global `.image` (cover + fixed box) which cropped thumbnails */
+.teamItemImage img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    border-radius: inherit;
 }
 
 .teamItemCard:hover .teamItemImage {
@@ -115,9 +123,10 @@
     font-weight: 500;
     line-height: 1.3;
     letter-spacing: -0.01em;
-    white-space: nowrap;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .productSubtitle {
@@ -135,8 +144,35 @@
     color: var(--color-text-secondary);
     opacity: 0.8;
     line-height: 1.4;
-    margin-bottom: 1rem;
-    /* Add clear separation before the link */
+    margin-bottom: 0.5rem;
+}
+
+.productHighlights {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.35rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.28rem;
+}
+
+.productHighlights li {
+    font-size: 0.75rem;
+    color: var(--color-text-primary);
+    line-height: 1.35;
+    padding-left: 0.875rem;
+    position: relative;
+}
+
+.productHighlights li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.48em;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #ff6b35;
 }
 
 /* Link View Animation */

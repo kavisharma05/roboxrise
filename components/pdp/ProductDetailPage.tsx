@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useCallback, useMemo } from "react";
+import { useRef, useMemo } from "react";
 import Link from "next/link";
 import type { Product } from "@/lib/product-data";
 import { allProducts, formatProductPriceDisplay } from "@/lib/product-data";
@@ -16,28 +16,12 @@ interface Props {
 }
 
 export default function ProductDetailPage({ product, loading }: Props) {
-  const tabsRef = useRef<HTMLDivElement>(null);
   const addToCartRef = useRef<HTMLButtonElement>(null);
 
   const hasSale =
     !product.priceRange &&
     !!product.originalPrice &&
     product.originalPrice > product.price;
-
-  const scrollToReviews = useCallback(() => {
-    if (tabsRef.current) {
-      tabsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-      const tabs = Array.from(
-        tabsRef.current.querySelectorAll('[role="tab"]')
-      ) as HTMLButtonElement[];
-      const reviewsTab = tabs.find((tab) =>
-        tab.textContent?.trim().toLowerCase().includes("reviews")
-      );
-      if (reviewsTab) {
-        setTimeout(() => reviewsTab.click(), 400);
-      }
-    }
-  }, []);
 
   const relatedProducts = useMemo(() => {
     const sameCategory = allProducts.filter(
@@ -93,7 +77,6 @@ export default function ProductDetailPage({ product, loading }: Props) {
                 <ProductInfo
                   product={product}
                   loading={loading}
-                  onScrollToReviews={scrollToReviews}
                   addToCartRef={addToCartRef}
                 />
               </div>
@@ -102,7 +85,7 @@ export default function ProductDetailPage({ product, loading }: Props) {
         </div>
       </section>
 
-      <TabsSection ref={tabsRef} product={product} />
+      <TabsSection product={product} />
 
       {relatedProducts.length > 0 && (
         <section className={styles.relatedSection}>
@@ -162,12 +145,6 @@ export default function ProductDetailPage({ product, loading }: Props) {
                             )}
                           </>
                         )}
-                      </div>
-                      <div className={styles.relatedRating}>
-                        <span>★ {p.rating}</span>
-                        <span className={styles.relatedRatingCount}>
-                          ({p.reviewCount})
-                        </span>
                       </div>
                     </div>
                   </Link>

@@ -137,6 +137,10 @@ export default function ImageGallery({ images, saleActive, loading }: Props) {
         </Swiper>
       </div>
 
+      <p className={styles.imageDisclaimer}>
+        Images are only for representation, actual product and color may vary.
+      </p>
+
       {/* Lightbox */}
       {lightboxOpen && (
         <div className={styles.lightbox} onClick={closeLightbox}>

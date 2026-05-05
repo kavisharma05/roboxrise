@@ -42,7 +42,6 @@ const footerLinks = {
     ],
     support: [
         { label: "Contact", href: "/contact" },
-        { label: "Help Center", href: "/help" },
         { label: "Privacy Policy", href: "/privacy" },
         { label: "Terms of Service", href: "/terms" },
     ],
@@ -61,7 +60,7 @@ export default function Footer() {
                             <div className={styles.footerLeftWrap}>
                                 <div className={styles.footerBrand}>
                                     <img
-                                        src="/roboriselogoinvert.svg"
+                                        src="/roboxriselogoinvert.svg"
                                         alt="RoboxRise"
                                         className={styles.brandLogo}
                                     />

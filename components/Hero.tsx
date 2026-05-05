@@ -1,10 +1,16 @@
 "use client";
 
 import Link from "next/link";
+import { heroDesktopYoutubeEmbedSrc, getHeroDesktopYoutubeId } from "@/lib/hero-background";
 import styles from "./Hero.module.css";
 import HeroContactForm from "./HeroContactForm";
 
+const HERO_BG_POSTER =
+    "https://res.cloudinary.com/dixayfqq8/image/upload/v1770269617/section1a_okfphc.jpg";
+
 export default function Hero() {
+    const heroYtEmbedSrc = heroDesktopYoutubeEmbedSrc(getHeroDesktopYoutubeId());
+
     return (
         <section className={styles.sectionFull}>
             {/* Centered Hero Text */}
@@ -62,20 +68,18 @@ export default function Hero() {
                         alt="Students learning robotics with RoboxRise educational systems"
                         className={`${styles.imageMain} ${styles.showTablet}`}
                     />
-                    {/* Desktop Video - hidden on tablet and below */}
+                    {/* Desktop: muted autoplay loop via YouTube (hosted MP4 was 404 on Cloudinary) */}
                     <div className={styles.hideTablet}>
-                        <video
-                            autoPlay
-                            muted
-                            loop
-                            playsInline
-                            className={styles.imageMain}
-                        >
-                            <source
-                                src="https://res.cloudinary.com/dixayfqq8/video/upload/v1770155966/hero-roborise_ukt8hi.mp4"
-                                type="video/mp4"
+                        <div className={styles.heroDesktopMedia}>
+                            <img src={HERO_BG_POSTER} alt="" className={styles.heroPosterLayer} aria-hidden />
+                            <iframe
+                                className={styles.heroYoutubeIframe}
+                                src={heroYtEmbedSrc}
+                                title="RoboxRise hero background"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerPolicy="strict-origin-when-cross-origin"
                             />
-                        </video>
+                        </div>
                     </div>
                 </div>
                 {/* Bottom gradient overlay for form readability */}

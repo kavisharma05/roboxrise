@@ -13,7 +13,7 @@ const faqItems = [
     {
         question: "What software platforms are supported?",
         answer:
-            "Roborise products support ROS / ROS2, Python, Arduino, and open APIs — making them compatible with most educational and lab workflows.",
+            "RoboxRise products support ROS / ROS2, Python, Arduino, and open APIs — making them compatible with most educational and lab workflows.",
     },
     {
         question: "Are learning materials included?",
@@ -23,7 +23,7 @@ const faqItems = [
     {
         question: "Can these be used in schools and universities?",
         answer:
-            "Absolutely. Roborise systems are built specifically for classrooms, labs, training centers, and research environments.",
+            "Absolutely. RoboxRise systems are built specifically for classrooms, labs, training centers, and research environments.",
     },
     {
         question: "Do you provide technical support?",

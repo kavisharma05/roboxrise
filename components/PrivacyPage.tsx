@@ -144,7 +144,7 @@ export default function PrivacyPage() {
                                             <li><strong>Right to Data Portability:</strong> Request your data in a structured, machine-readable format.</li>
                                             <li><strong>Right to Opt-Out:</strong> Unsubscribe from marketing communications at any time via the link in our emails.</li>
                                         </ul>
-                                        <p>To exercise any of these rights, please contact us at privacy@roborise.com. We will respond to your request within 30 days.</p>
+                                        <p>To exercise any of these rights, please contact us at gunalan@r-tech.in. We will respond to your request within 30 days.</p>
                                     </div>
                                 </ScrollAnimation>
 
@@ -173,7 +173,7 @@ export default function PrivacyPage() {
                                             <p><strong>RoboxRise Education Pvt. Ltd.</strong></p>
                                             <p>156, Krishna Market, Near Parmanu Nagar</p>
                                             <p>CAT Road, Indore 452012, India</p>
-                                            <p>Email: <a href="mailto:privacy@roborise.com" className={styles.inlineLink}>privacy@roborise.com</a></p>
+                                            <p>Email: <a href="mailto:gunalan@r-tech.in" className={styles.inlineLink}>gunalan@r-tech.in</a></p>
                                             <p>Phone: <a href="tel:6264941006" className={styles.inlineLink}>+91 62649 41006</a></p>
                                         </div>
                                         <p>

@@ -49,26 +49,24 @@ const PRODUCT_SEQUENCE: string[] = [
     "mirobot-professional-kit",
     "mirobot-education-kit",
     "mt4-edu-kit",
-    "ai-vision-set-programmable-educational-robotics",
+    "mt4-advanced-kit",
     "opencv-advanced-vision-suite-with-textbook",
-    "agv-rover-set",
-    "conveyor-belt-set-mirobot",
-    "sliding-rail-set-mirobot",
-    "ai-navigation-learning-suite-with-textbook",
+    "ai-vision-set-programmable-educational-robotics",
     "ai-hub-ai-development-kit",
-    "fruit-picking-cell-mirobot-ai-vision-touch-screen",
+    "agv-rover-set",
+    "world-builder-set",
+    "sliding-rail-set-mirobot",
+    "conveyor-belt-set-mirobot",
+    "march-x-pro-lidar-kit-robotic-dog",
+    "brave-edu-kit-biped-robot-sim2real",
+    "automotive-manufacturing-simulation-production-line",
+    "mirobot-automobile-intelligent-manufacturing-line",
+    "mt4-arduino-adventure-project-bundle",
     "automobile-assembly-cell-mirobot-touch-screen",
+    "automobile-assembly-line-robotics-training",
     "ai-automatic-sorting-cell-mirobot-touch-screen",
     "logistic-warehouse-cell-mt4-mirobot",
-    "mirobot-automobile-intelligent-manufacturing-line",
-    "automobile-assembly-line-robotics-training",
-    "ai-automatic-sorting-line-mirobot-training-solution",
-    "educational-programmable-robotics-fruit-picking-line",
-    "mini-t-slot-starter-set",
-    "omniconveyor-standard-set",
-    "world-builder-set",
-    "brave-edu-kit-biped-robot-sim2real",
-    "march-x-pro-lidar-kit-robotic-dog",
+    "fruit-picking-cell-mirobot-ai-vision-touch-screen",
 ];
 
 const PRODUCT_SEQUENCE_INDEX = new Map(
@@ -438,13 +436,13 @@ export default function ProductsPage() {
                                                         alt={product.name}
                                                     />
                                                 </div>
+                                                <p className={styles.productImageNote}>
+                                                    Images are only for representation, actual product and color may vary.
+                                                </p>
                                                 <div className={styles.productInfo}>
                                                     <div className={styles.productName}>
                                                         {product.name}
                                                     </div>
-                                                    {!product.hasDemoVideo && (
-                                                        <span className={styles.noVideoBadge}>No demo video yet</span>
-                                                    )}
                                                     <div className={styles.productDesc}>
                                                         {product.desc}
                                                     </div>

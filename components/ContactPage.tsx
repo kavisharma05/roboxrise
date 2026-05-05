@@ -106,7 +106,7 @@ export default function ContactPage() {
                                                 id="cp-email"
                                                 name="email"
                                                 className="form_input"
-                                                placeholder="you@example.com"
+                                                placeholder="gunalan@r-tech.in"
                                                 required
                                             />
                                             <ValidationError
@@ -207,9 +207,12 @@ export default function ContactPage() {
                                         </div>
                                         <div className={styles.infoContent}>
                                             <span className={styles.infoLabel}>Visit Us</span>
-                                            <span className={styles.infoValue}>156, Krishna Market</span>
+                                            <span className={styles.infoValue}>RoboxRise AI Lab Solutions</span>
                                             <span className={styles.infoValueSecondary}>
-                                                Near Parmanu Nagar, CAT Road, Indore 452012
+                                                (A unit of Raghavendar Tech Excellence Pvt. Ltd.)
+                                            </span>
+                                            <span className={styles.infoValueSecondary}>
+                                                Halka No. 38, Sanwer Road, Sector A Industrial Area, Tigaria Badsha, Indore - 452015, India
                                             </span>
                                         </div>
                                     </div>
@@ -224,8 +227,8 @@ export default function ContactPage() {
                                         </div>
                                         <div className={styles.infoContent}>
                                             <span className={styles.infoLabel}>Call Us</span>
-                                            <a href="tel:6264941006" className={styles.infoValue}>
-                                                +91 62649 41006
+                                            <a href="tel:8120007474" className={styles.infoValue}>
+                                                +91 81200 07474
                                             </a>
                                             <span className={styles.infoValueSecondary}>
                                                 Also available on WhatsApp
@@ -244,8 +247,8 @@ export default function ContactPage() {
                                         </div>
                                         <div className={styles.infoContent}>
                                             <span className={styles.infoLabel}>Email Us</span>
-                                            <a href="mailto:hello@roborise.com" className={styles.infoValue}>
-                                                hello@roborise.com
+                                            <a href="mailto:gunalan@r-tech.in" className={styles.infoValue}>
+                                                gunalan@r-tech.in
                                             </a>
                                             <span className={styles.infoValueSecondary}>
                                                 We reply within 24 hours
@@ -283,7 +286,7 @@ export default function ContactPage() {
                                             instant support and quick answers.
                                         </p>
                                         <a
-                                            href="https://wa.me/916264941006"
+                                            href="https://wa.me/918120007474"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className={styles.ctaButton}

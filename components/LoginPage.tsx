@@ -249,7 +249,7 @@ export default function LoginPage() {
                           type="email"
                           required
                           className={styles.input}
-                          placeholder="you@example.com"
+                          placeholder="gunalan@r-tech.in"
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                         />

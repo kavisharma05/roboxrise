@@ -120,7 +120,7 @@ export default function Navbar({ theme = "default" }: NavbarProps) {
 
                     <Link href="/" className={styles.logoLink}>
                         <img
-                            src="/roboriselogo.svg"
+                            src="/roboxriselogo.svg"
                             alt="RoboxRise"
                             className={styles.logo}
                         />
@@ -164,7 +164,7 @@ export default function Navbar({ theme = "default" }: NavbarProps) {
             <nav className={`${styles.floatingNav} ${isScrolled ? styles.visible : ""}`}>
                 <div className={styles.floatingNavContent}>
                     <Link href="/" className={styles.floatingLogoLink}>
-                        <img src="/roboriselogoinvert.svg" alt="RoboxRise" className={styles.floatingLogo} />
+                        <img src="/roboxriselogoinvert.svg" alt="RoboxRise" className={styles.floatingLogo} />
                     </Link>
                     <nav className={styles.navWrap}>
                         <div className={styles.navbarList}>
@@ -218,7 +218,7 @@ export default function Navbar({ theme = "default" }: NavbarProps) {
             {/* ── Mobile: Slide-in Drawer ── */}
             <div className={`${styles.mobileMenuDrawer} ${isMobileMenuOpen ? styles.open : ""}`}>
                 <div className={styles.drawerHeader}>
-                    <img src="/roboriselogo.svg" alt="RoboxRise" className={styles.drawerLogo} />
+                    <img src="/roboxriselogo.svg" alt="RoboxRise" className={styles.drawerLogo} />
                     <button className={styles.drawerClose} onClick={closeMenu} aria-label="Close menu">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M18 6L6 18M6 6l12 12" />
@@ -280,9 +280,6 @@ export default function Navbar({ theme = "default" }: NavbarProps) {
 
                     <div className={styles.drawerSection}>
                         <div className={styles.drawerSectionTitle}>More</div>
-                        <Link href="/help" className={drawerLinkClass("/help")}>
-                            <HelpIcon /> Help Center
-                        </Link>
                         <Link href="/cart" className={drawerLinkClass("/cart")}>
                             <CartDrawerIcon /> Cart
                             {totalItems > 0 && <span className={styles.drawerBadge}>{totalItems}</span>}
@@ -402,16 +399,6 @@ function ContactIcon() {
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
             <polyline points="22,6 12,13 2,6" />
-        </svg>
-    );
-}
-
-function HelpIcon() {
-    return (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="12" cy="12" r="10" />
-            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
-            <line x1="12" y1="17" x2="12.01" y2="17" />
         </svg>
     );
 }

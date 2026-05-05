@@ -3,7 +3,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import "./RoboxRiseIntroLoader.css";
 
-const STORAGE_KEY = "roborise-intro-loader-seen";
+const STORAGE_KEY = "roboxrise-intro-loader-seen";
 const CYCLE_MS = 5800;
 /** Overlay fade duration — keep in sync with .roboxrise-intro-loader transition in CSS */
 const FADE_MS = 750;
