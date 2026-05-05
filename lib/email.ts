@@ -16,7 +16,7 @@ function getResend(): Resend | null {
   return new Resend(key);
 }
 
-const FROM_EMAIL = process.env.EMAIL_FROM || "RoboxRise Orders <orders@yourdomain.com>";
+const FROM_EMAIL = process.env.EMAIL_FROM || "RoboxRise Orders <gunalan@r-tech.in>";
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "";
 
 interface OrderItemData {
@@ -220,7 +220,7 @@ export async function sendCustomerOrderConfirmation(
         <h3 style="margin:0 0 8px;font-size:14px;color:#333;">Shipping To</h3>
         <p style="margin:0 0 20px;font-size:14px;color:#555;">${formatAddress(order.shipping_address_snapshot)}</p>
 
-        <p style="font-size:13px;color:#999;margin:0;">If you have any questions about your order, reply to this email or contact us at support@roborise.com</p>
+        <p style="font-size:13px;color:#999;margin:0;">If you have any questions about your order, reply to this email or contact us at gunalan@r-tech.in</p>
       </div>
     </div>
   `;
