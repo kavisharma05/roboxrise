@@ -11,7 +11,7 @@ export async function POST() {
     receipt: "TEST_RECEIPT_001",
     customer_first_name: "Test",
     customer_last_name: "Customer",
-    contact_email: process.env.ADMIN_EMAIL || "test@example.com",
+    contact_email: process.env.ADMIN_EMAIL || "gunalan@r-tech.in",
     contact_phone: "+91 1234567890",
     shipping_address_snapshot: {
       first_name: "Test",

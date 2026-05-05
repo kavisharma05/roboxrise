@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     icons: {
         icon: [
             { url: "/icon", sizes: "32x32", type: "image/png" },
-            { url: "/roboriselogo.svg", type: "image/svg+xml" },
+            { url: "/roboxriselogo.svg", type: "image/svg+xml" },
         ],
         apple: [{ url: "/apple-icon", sizes: "180x180", type: "image/png" }],
     },
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
         siteName: "RoboxRise",
         images: [
             {
-                url: "/roboriselogo.svg",
+                url: "/roboxriselogo.svg",
                 width: 1200,
                 height: 630,
                 alt: "RoboxRise",
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
         title: "RoboxRise | Robotics Education Platform",
         description:
             "Industrial-grade robotic arms and AI kits for STEM classrooms, labs, and universities.",
-        images: ["/roboriselogo.svg"],
+        images: ["/roboxriselogo.svg"],
     },
     other: {
         "geo.region": "IN",
@@ -102,7 +102,7 @@ export default function RootLayout({
         "@type": ["Organization", "EducationalOrganization"],
         name: "RoboxRise",
         url: "https://roboxrise.in",
-        logo: "https://roboxrise.in/roboriselogo.svg",
+        logo: "https://roboxrise.in/roboxriselogo.svg",
         description:
             "Industrial-grade robotic arms and AI kits for universities, schools, and STEM labs.",
         areaServed: "IN",
@@ -117,7 +117,7 @@ export default function RootLayout({
             <head>
                 <script
                     dangerouslySetInnerHTML={{
-                        __html: `(function(){try{var k='roborise-intro-loader-seen';if(!sessionStorage.getItem(k))document.documentElement.classList.add('intro-loader-active');}catch(e){}})();`,
+                        __html: `(function(){try{var k='roboxrise-intro-loader-seen';if(!sessionStorage.getItem(k))document.documentElement.classList.add('intro-loader-active');}catch(e){}})();`,
                     }}
                 />
                 <script

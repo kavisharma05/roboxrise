@@ -6,7 +6,6 @@ import Discover from "@/components/Discover";
 import Services from "@/components/Services";
 import Team from "@/components/Team";
 import Testimonials from "@/components/Testimonials";
-import AppPromo from "@/components/AppPromo";
 import Contact from "@/components/Contact";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
@@ -75,7 +74,6 @@ export default function Home() {
                     <Services />
                     <WhoItsFor />
                     <Testimonials />
-                    <AppPromo />
                     <Contact />
                     <FAQ />
                 </Skeleton>
