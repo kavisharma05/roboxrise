@@ -5,6 +5,11 @@ import "./RoboxRiseIntroLoader.css";
 
 const STORAGE_KEY = "roboxrise-intro-loader-seen";
 const CYCLE_MS = 5800;
+/**
+ * The visible draw sequence ends around 73% of the full CSS timeline.
+ * If we wait for the complete 5.8s cycle, users see a "dead" pause before reveal.
+ */
+const VISIBLE_PORTION = 0.73;
 /** Overlay fade duration — keep in sync with .roboxrise-intro-loader transition in CSS */
 const FADE_MS = 750;
 
@@ -39,7 +44,7 @@ export default function RoboxRiseIntroLoader() {
         if (!visible || !shouldShowIntro()) return;
 
         const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        const holdMs = reduceMotion ? 700 : CYCLE_MS;
+        const holdMs = reduceMotion ? 700 : Math.round(CYCLE_MS * VISIBLE_PORTION);
 
         let fadeTimer: ReturnType<typeof setTimeout> | undefined;
         const mainTimer = setTimeout(() => {
