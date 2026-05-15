@@ -114,23 +114,16 @@ export default function TermsPage() {
                                 <ScrollAnimation>
                                     <div className={styles.policySection} id="shipping-delivery">
                                         <h2 className={styles.sectionHeading}>5. Shipping & Delivery</h2>
-                                        <p>We ship to addresses across India. Standard shipping typically takes 5–7 business days, while express shipping options are available for 2–3 business day delivery. Shipping times are estimates and not guaranteed.</p>
-                                        <p>Shipping costs are calculated at checkout based on the delivery address and selected shipping method. Free standard shipping is available on orders above the qualifying threshold displayed on our website.</p>
-                                        <p>Risk of loss and title for products pass to you upon delivery to the carrier. We are not responsible for delays caused by the carrier, customs, weather events, or other circumstances beyond our control. If your package is lost or damaged during transit, please contact us within 7 days of the expected delivery date and we will work with the carrier to resolve the issue.</p>
+                                        <p>We strive to ensure your RoboxRise kits reach you safely and efficiently. <strong>Shipping & Delivery details, including costs and estimated timelines, should be checked at the time of the checkout.</strong> These details are dynamically calculated based on your specific delivery address, selected shipping method, and current logistics availability.</p>
+                                        <p>Once an order is placed, you will receive a tracking number to monitor your shipment&apos;s progress. Please ensure that the shipping information provided at checkout is accurate to avoid any delays in delivery.</p>
                                     </div>
                                 </ScrollAnimation>
 
                                 <ScrollAnimation>
                                     <div className={styles.policySection} id="returns-refunds">
                                         <h2 className={styles.sectionHeading}>6. Returns & Refunds</h2>
-                                        <p>We want you to be completely satisfied with your purchase. Our return policy allows you to return products within 30 days of delivery, subject to the following conditions:</p>
-                                        <ul className={styles.list}>
-                                            <li><strong>Unopened Products:</strong> Products in their original, sealed packaging may be returned for a full refund.</li>
-                                            <li><strong>Defective Products:</strong> If you receive a product with a manufacturing defect, we will replace it free of charge or issue a full refund at your choice.</li>
-                                            <li><strong>Opened Products:</strong> Products that have been opened and used may be returned if they are defective. Products opened for reasons other than defect may be subject to a restocking fee of up to 15%.</li>
-                                            <li><strong>Digital Content:</strong> Downloadable educational materials, video courses, and software licenses are non-refundable once accessed or downloaded.</li>
-                                        </ul>
-                                        <p>To initiate a return, contact our support team at gunalan@r-tech.in or through your account dashboard. Refunds are typically processed within 7–10 business days after we receive and inspect the returned product.</p>
+                                        <p>At RoboxRise, we take immense pride in the quality and educational value of our robotics kits and curriculum materials. Due to the nature of our products and the specialized educational resources included, all sales are final. <strong>These products are not returnable or refundable.</strong></p>
+                                        <p>We encourage our customers to review product specifications and requirements carefully before completing a purchase. In the rare event of a manufacturing defect or missing components, please contact our support team within 48 hours of delivery for assistance with a replacement.</p>
                                     </div>
                                 </ScrollAnimation>
 
@@ -165,11 +158,12 @@ export default function TermsPage() {
                                         <h2 className={styles.sectionHeading}>10. Contact Information</h2>
                                         <p>If you have any questions about these Terms of Service, please contact us:</p>
                                         <div className={styles.contactBlock}>
-                                            <p><strong>RoboxRise Education Pvt. Ltd.</strong></p>
-                                            <p>156, Krishna Market, Near Parmanu Nagar</p>
-                                            <p>CAT Road, Indore 452012, India</p>
+                                            <p><strong>RoboxRise AI Lab Solutions</strong></p>
+                                            <p>(A unit of Raghavendar Tech Excellence Pvt. Ltd.)</p>
+                                            <p>Halka No. 38, Sanwer Road, Sector A Industrial Area</p>
+                                            <p>Tigaria Badsha, Indore - 452015, India</p>
                                             <p>Email: <a href="mailto:gunalan@r-tech.in" className={styles.inlineLink}>gunalan@r-tech.in</a></p>
-                                            <p>Phone: <a href="tel:6264941006" className={styles.inlineLink}>+91 62649 41006</a></p>
+                                            <p>Phone: <a href="tel:8120007474" className={styles.inlineLink}>+91 81200 07474</a></p>
                                         </div>
                                         <p>
                                             You may also reach out via our{" "}

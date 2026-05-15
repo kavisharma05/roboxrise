@@ -450,6 +450,7 @@ a.infoValue:hover {
 @media screen and (max-width: 991px) {
     .heroSection {
         min-height: 50vh;
+        padding-top: calc(56px + env(safe-area-inset-top, 0px));
     }
 
     .contentGrid {

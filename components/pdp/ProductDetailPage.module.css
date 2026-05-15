@@ -262,7 +262,7 @@
   ============================================ */
 @media screen and (max-width: 991px) {
   .breadcrumbBar {
-    padding-top: 3.5rem;
+    padding-top: calc(56px + env(safe-area-inset-top, 0px) + 1rem);
     padding-bottom: 0.875rem;
   }
 
@@ -298,7 +298,7 @@
 
 @media screen and (max-width: 767px) {
   .breadcrumbBar {
-    padding-top: 3rem;
+    padding-top: calc(56px + env(safe-area-inset-top, 0px) + 0.75rem);
     padding-bottom: 0.75rem;
   }
 

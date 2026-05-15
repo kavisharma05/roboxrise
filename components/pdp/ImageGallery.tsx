@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
@@ -17,15 +18,35 @@ interface Props {
 export default function ImageGallery({ images, saleActive, loading }: Props) {
   const [activeIdx, setActiveIdx] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [isZoomed, setIsZoomed] = useState(false);
+  const [zoomPos, setZoomPos] = useState({ x: 50, y: 50 });
   const mainRef = useRef<HTMLDivElement>(null);
+  const [portalRoot, setPortalRoot] = useState<HTMLElement | null>(null);
+
+  // Resolve portal target on mount (client-only)
+  useEffect(() => {
+    setPortalRoot(document.body);
+  }, []);
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isZoomed) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const x = ((e.clientX - rect.left) / rect.width) * 100;
     const y = ((e.clientY - rect.top) / rect.height) * 100;
-    e.currentTarget.style.setProperty("--zoom-x", `${x}%`);
-    e.currentTarget.style.setProperty("--zoom-y", `${y}%`);
+    setZoomPos({ x, y });
+  }, [isZoomed]);
+
+  const handleImageClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    // Don't toggle zoom if clicking on the fullscreen button
+    if ((e.target as HTMLElement).closest('button')) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setZoomPos({ x, y });
+    setIsZoomed((prev) => !prev);
   }, []);
+
+  const handleMouseLeave = useCallback(() => setIsZoomed(false), []);
 
   const openLightbox = () => setLightboxOpen(true);
   const closeLightbox = () => setLightboxOpen(false);
@@ -35,6 +56,19 @@ export default function ImageGallery({ images, saleActive, loading }: Props) {
   const lightboxNext = () =>
     setActiveIdx((prev) => (prev === images.length - 1 ? 0 : prev + 1));
 
+  // Lock body scroll when lightbox is open
+  useEffect(() => {
+    if (lightboxOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [lightboxOpen]);
+
+  // Keyboard navigation for lightbox
   useEffect(() => {
     if (!lightboxOpen) return;
     const handler = (e: KeyboardEvent) => {
@@ -59,19 +93,72 @@ export default function ImageGallery({ images, saleActive, loading }: Props) {
     );
   }
 
+  const lightboxElement = lightboxOpen ? (
+    <div className={styles.lightbox} onClick={closeLightbox}>
+      <button
+        className={styles.lightboxClose}
+        onClick={closeLightbox}
+        aria-label="Close lightbox"
+      >
+        ✕
+      </button>
+      <button
+        className={`${styles.lightboxNav} ${styles.lightboxPrev}`}
+        onClick={(e) => { e.stopPropagation(); lightboxPrev(); }}
+        aria-label="Previous image"
+      >
+        ‹
+      </button>
+      <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
+        <img
+          className={styles.lightboxImage}
+          src={images[activeIdx].src}
+          alt={images[activeIdx].alt}
+        />
+        {/* Thumbnail strip inside lightbox */}
+        {images.length > 1 && (
+          <div className={styles.lightboxThumbs}>
+            {images.map((img, i) => (
+              <button
+                key={i}
+                className={`${styles.lightboxThumb} ${i === activeIdx ? styles.lightboxThumbActive : ""}`}
+                onClick={() => setActiveIdx(i)}
+                aria-label={`View image ${i + 1}`}
+              >
+                <img src={img.src} alt={img.alt} loading="lazy" />
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+      <button
+        className={`${styles.lightboxNav} ${styles.lightboxNext}`}
+        onClick={(e) => { e.stopPropagation(); lightboxNext(); }}
+        aria-label="Next image"
+      >
+        ›
+      </button>
+      <span className={styles.lightboxCounter}>
+        {activeIdx + 1} / {images.length}
+      </span>
+    </div>
+  ) : null;
+
   return (
     <div className={styles.gallery}>
       {/* Desktop: Main image + thumbnails */}
       <div className={styles.desktopOnly}>
         <div
           ref={mainRef}
-          className={styles.mainImageWrap}
+          className={`${styles.mainImageWrap} ${isZoomed ? styles.zooming : ''}`}
           onMouseMove={handleMouseMove}
+          onClick={handleImageClick}
+          onMouseLeave={handleMouseLeave}
         >
           {saleActive && <span className={styles.saleBadge}>SALE</span>}
           <button
             className={styles.fullscreenBtn}
-            onClick={openLightbox}
+            onClick={(e) => { e.stopPropagation(); openLightbox(); }}
             aria-label="View fullscreen"
           >
             <ExpandIcon />
@@ -81,8 +168,26 @@ export default function ImageGallery({ images, saleActive, loading }: Props) {
             src={images[activeIdx].src}
             alt={images[activeIdx].alt}
             draggable={false}
+            style={
+              isZoomed
+                ? {
+                    transform: 'scale(2.5)',
+                    transformOrigin: `${zoomPos.x}% ${zoomPos.y}%`,
+                    transition: 'transform-origin 0s ease, transform 0.15s ease',
+                  }
+                : {
+                    transform: 'scale(1)',
+                    transformOrigin: '50% 50%',
+                    transition: 'transform 0.3s ease, transform-origin 0.3s ease',
+                  }
+            }
           />
-          <span className={styles.imageCounter}>{activeIdx + 1} / {images.length}</span>
+          <span className={`${styles.imageCounter} ${isZoomed ? styles.hidden : ''}`}>{activeIdx + 1} / {images.length}</span>
+          {isZoomed && (
+            <div className={styles.zoomHint}>
+              <MagnifyIcon /> Click to exit zoom
+            </div>
+          )}
         </div>
 
         {images.length > 1 && (
@@ -137,45 +242,8 @@ export default function ImageGallery({ images, saleActive, loading }: Props) {
         </Swiper>
       </div>
 
-      <p className={styles.imageDisclaimer}>
-        Images are only for representation, actual product and color may vary.
-      </p>
-
-      {/* Lightbox */}
-      {lightboxOpen && (
-        <div className={styles.lightbox} onClick={closeLightbox}>
-          <button
-            className={styles.lightboxClose}
-            onClick={closeLightbox}
-            aria-label="Close lightbox"
-          >
-            ✕
-          </button>
-          <button
-            className={`${styles.lightboxNav} ${styles.lightboxPrev}`}
-            onClick={(e) => { e.stopPropagation(); lightboxPrev(); }}
-            aria-label="Previous image"
-          >
-            ‹
-          </button>
-          <img
-            className={styles.lightboxImage}
-            src={images[activeIdx].src}
-            alt={images[activeIdx].alt}
-            onClick={(e) => e.stopPropagation()}
-          />
-          <button
-            className={`${styles.lightboxNav} ${styles.lightboxNext}`}
-            onClick={(e) => { e.stopPropagation(); lightboxNext(); }}
-            aria-label="Next image"
-          >
-            ›
-          </button>
-          <span className={styles.lightboxCounter}>
-            {activeIdx + 1} / {images.length}
-          </span>
-        </div>
-      )}
+      {/* Lightbox rendered via portal to escape sticky stacking context */}
+      {portalRoot && lightboxElement && createPortal(lightboxElement, portalRoot)}
     </div>
   );
 }
@@ -187,6 +255,17 @@ function ExpandIcon() {
       <polyline points="9 21 3 21 3 15" />
       <line x1="21" y1="3" x2="14" y2="10" />
       <line x1="3" y1="21" x2="10" y2="14" />
+    </svg>
+  );
+}
+
+function MagnifyIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="11" cy="11" r="8" />
+      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      <line x1="11" y1="8" x2="11" y2="14" />
+      <line x1="8" y1="11" x2="14" y2="11" />
     </svg>
   );
 }

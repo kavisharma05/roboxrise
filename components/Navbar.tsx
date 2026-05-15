@@ -126,7 +126,7 @@ export default function Navbar({ theme = "default" }: NavbarProps) {
                         />
                     </Link>
 
-                    <div className={`${styles.initialRightGroup} hide-mobile-portrait`}>
+                    <div className={`${styles.initialRightGroup}`}>
                         <Link href="/cart" className={styles.cartLink} aria-label="Cart">
                             <BagIcon />
                             {totalItems > 0 && (
@@ -174,7 +174,7 @@ export default function Navbar({ theme = "default" }: NavbarProps) {
                             <Link href="/contact" className={styles.navLinks}>Contact</Link>
                         </div>
                     </nav>
-                    <div className={`${styles.floatingRightGroup} hide-mobile-portrait`}>
+                    <div className={`${styles.floatingRightGroup}`}>
                         <Link href="/cart" className={styles.floatingCartLink} aria-label="Cart">
                             <BagIcon />
                             {totalItems > 0 && (
@@ -293,42 +293,33 @@ export default function Navbar({ theme = "default" }: NavbarProps) {
                 </div>
             </div>
 
-            {/* ── Mobile: Bottom Navigation Bar ── */}
-            <nav className={`${styles.bottomNav} ${isMobileMenuOpen ? styles.bottomNavHidden : ""}`}>
-                <Link href="/" className={`${styles.bottomNavItem} ${pathname === "/" ? styles.active : ""}`}>
-                    <span className={styles.bottomNavIcon}><HomeIcon /></span>
-                    <span className={styles.bottomNavLabel}>Home</span>
-                </Link>
-
-                <Link href="/products" className={`${styles.bottomNavItem} ${pathname?.startsWith("/products") ? styles.active : ""}`}>
-                    <span className={styles.bottomNavIcon}><ShopIcon /></span>
-                    <span className={styles.bottomNavLabel}>Shop</span>
-                </Link>
-
-                <button className={styles.bottomNavItem} onClick={openMenu} aria-label="Open menu">
-                    <span className={styles.bottomNavIcon}><MenuIcon /></span>
-                    <span className={styles.bottomNavLabel}>Menu</span>
+            {/* ── Mobile: Top Navigation Bar ── */}
+            <nav className={styles.mobileTopBar}>
+                <button className={styles.mobileTopBarMenu} onClick={openMenu} aria-label="Open menu">
+                    <MenuIcon />
                 </button>
 
-                <Link href="/cart" className={`${styles.bottomNavItem} ${styles.bottomNavCart} ${pathname === "/cart" ? styles.active : ""}`}>
-                    <span className={styles.bottomNavIcon}><BagIcon /></span>
-                    <span className={styles.bottomNavLabel}>Cart</span>
-                    {totalItems > 0 && (
-                        <span className={styles.bottomNavBadge}>{totalItems > 9 ? "9+" : totalItems}</span>
-                    )}
+                <Link href="/" className={styles.mobileTopBarLogo}>
+                    <img src="/roboxriselogo.svg" alt="RoboxRise" className={styles.mobileTopBarLogoImg} />
                 </Link>
 
-                {user ? (
-                    <button className={styles.bottomNavItem} onClick={openMenu} aria-label="Account">
-                        <span className={styles.bottomNavIcon}><UserIcon /></span>
-                        <span className={styles.bottomNavLabel}>Account</span>
-                    </button>
-                ) : (
-                    <Link href="/login" className={`${styles.bottomNavItem} ${pathname === "/login" ? styles.active : ""}`}>
-                        <span className={styles.bottomNavIcon}><UserIcon /></span>
-                        <span className={styles.bottomNavLabel}>Sign In</span>
+                <div className={styles.mobileTopBarActions}>
+                    <Link href="/cart" className={styles.mobileTopBarAction} aria-label="Cart">
+                        <BagIcon />
+                        {totalItems > 0 && (
+                            <span className={styles.mobileTopBarBadge}>{totalItems > 9 ? "9+" : totalItems}</span>
+                        )}
                     </Link>
-                )}
+                    {user ? (
+                        <button className={styles.mobileTopBarAction} onClick={openMenu} aria-label="Account">
+                            <UserIcon size={22} />
+                        </button>
+                    ) : (
+                        <Link href="/login" className={styles.mobileTopBarAction} aria-label="Sign In">
+                            <UserIcon size={22} />
+                        </Link>
+                    )}
+                </div>
             </nav>
         </div>
     );

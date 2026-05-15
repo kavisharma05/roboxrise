@@ -170,11 +170,12 @@ export default function PrivacyPage() {
                                         <h2 className={styles.sectionHeading}>9. Contact Us</h2>
                                         <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
                                         <div className={styles.contactBlock}>
-                                            <p><strong>RoboxRise Education Pvt. Ltd.</strong></p>
-                                            <p>156, Krishna Market, Near Parmanu Nagar</p>
-                                            <p>CAT Road, Indore 452012, India</p>
+                                            <p><strong>RoboxRise AI Lab Solutions</strong></p>
+                                            <p>(A unit of Raghavendar Tech Excellence Pvt. Ltd.)</p>
+                                            <p>Halka No. 38, Sanwer Road, Sector A Industrial Area</p>
+                                            <p>Tigaria Badsha, Indore - 452015, India</p>
                                             <p>Email: <a href="mailto:gunalan@r-tech.in" className={styles.inlineLink}>gunalan@r-tech.in</a></p>
-                                            <p>Phone: <a href="tel:6264941006" className={styles.inlineLink}>+91 62649 41006</a></p>
+                                            <p>Phone: <a href="tel:8120007474" className={styles.inlineLink}>+91 81200 07474</a></p>
                                         </div>
                                         <p>
                                             You may also reach out via our{" "}

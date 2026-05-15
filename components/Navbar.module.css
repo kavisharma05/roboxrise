@@ -620,7 +620,7 @@
     }
 
     .initialNav {
-        padding: 1rem 1rem calc(1rem + env(safe-area-inset-top, 0px));
+        display: none;
     }
 
     .navWrap,
@@ -635,107 +635,109 @@
 }
 
 /* ============================================
-   Bottom Navigation Bar
+   Mobile Top Navigation Bar
    ============================================ */
-.bottomNav {
+.mobileTopBar {
     display: none;
 }
 
 @media screen and (max-width: 991px) {
-    .bottomNav {
+    .mobileTopBar {
         display: flex;
         position: fixed;
-        bottom: 0;
+        top: 0;
         left: 0;
         right: 0;
-        height: calc(60px + env(safe-area-inset-bottom, 0px));
-        padding: 0 0.25rem env(safe-area-inset-bottom, 0px);
-        background: rgba(255, 255, 255, 0.95);
+        height: calc(56px + env(safe-area-inset-top, 0px));
+        padding: env(safe-area-inset-top, 0px) 1rem 0;
+        background: rgba(255, 255, 255, 0.92);
         backdrop-filter: blur(20px) saturate(180%);
         -webkit-backdrop-filter: blur(20px) saturate(180%);
-        border-top: 1px solid rgba(0, 0, 0, 0.06);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         z-index: 1000;
-        align-items: stretch;
-        justify-content: space-around;
+        align-items: center;
+        justify-content: space-between;
         transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
     }
 
-    .bottomNavHidden {
-        transform: translateY(100%);
-    }
-
-    .bottomNavItem {
+    .mobileTopBarMenu {
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 2px;
-        flex: 1;
-        /* Reset button defaults */
-        -webkit-appearance: none;
-        appearance: none;
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 0.625rem;
         border: none;
-        background: transparent;
-        font-family: inherit;
-        font-size: inherit;
+        background: rgba(0, 0, 0, 0.04);
+        color: #1a1a1a;
         cursor: pointer;
-        /* Styling */
-        color: #999;
-        position: relative;
-        padding: 6px 0;
         -webkit-tap-highlight-color: transparent;
-        transition: color 0.2s ease;
+        transition: background-color 0.2s ease, transform 0.15s ease;
     }
 
-    .bottomNavItem:active {
-        transform: scale(0.94);
+    .mobileTopBarMenu svg {
+        width: 20px;
+        height: 20px;
     }
 
-    .bottomNavItem.active {
-        color: #ff6b35;
+    .mobileTopBarMenu:active {
+        transform: scale(0.92);
+        background: rgba(0, 0, 0, 0.08);
     }
 
-    .bottomNavItem.active::before {
-        content: "";
+    .mobileTopBarLogo {
         position: absolute;
-        top: 0;
         left: 50%;
         transform: translateX(-50%);
-        width: 20px;
-        height: 2.5px;
-        border-radius: 0 0 3px 3px;
-        background: #ff6b35;
+        display: flex;
+        align-items: center;
     }
 
-    .bottomNavIcon {
-        width: 22px;
-        height: 22px;
+    .mobileTopBarLogoImg {
+        height: 1.25rem;
+        width: auto;
+    }
+
+    .mobileTopBarActions {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
+
+    .mobileTopBarAction {
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 0.625rem;
+        border: none;
+        background: transparent;
+        color: #1a1a1a;
+        cursor: pointer;
+        font-family: inherit;
+        -webkit-tap-highlight-color: transparent;
+        transition: background-color 0.2s ease, transform 0.15s ease;
     }
 
-    .bottomNavIcon svg {
+    .mobileTopBarAction svg {
         width: 22px;
         height: 22px;
     }
 
-    .bottomNavLabel {
-        font-size: 0.625rem;
-        font-weight: 500;
-        letter-spacing: 0.02em;
-        line-height: 1;
+    .mobileTopBarAction:active {
+        transform: scale(0.92);
     }
 
-    .bottomNavCart {
-        position: relative;
+    .mobileTopBarAction:hover {
+        background: rgba(0, 0, 0, 0.04);
     }
 
-    .bottomNavBadge {
+    .mobileTopBarBadge {
         position: absolute;
         top: 2px;
-        left: 50%;
-        margin-left: 4px;
+        right: 2px;
         min-width: 16px;
         height: 16px;
         display: flex;
@@ -750,6 +752,7 @@
         border-radius: 9999px;
         box-shadow: 0 1px 4px rgba(255, 107, 53, 0.4);
         animation: badgePop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+        pointer-events: none;
     }
 }
 
@@ -850,7 +853,7 @@
         flex: 1;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
-        padding: 0.5rem 0.625rem calc(80px + env(safe-area-inset-bottom, 0px)) 0.625rem;
+        padding: 0.5rem 0.625rem 1.5rem 0.625rem;
     }
 
     .drawerSection {
@@ -1005,26 +1008,28 @@
    Mobile Portrait (≤479px)
    ============================================ */
 @media screen and (max-width: 479px) {
-    .initialNav {
-        padding: 0.75rem 0.75rem calc(0.75rem + env(safe-area-inset-top, 0px));
+    .mobileTopBar {
+        padding: env(safe-area-inset-top, 0px) 0.75rem 0;
+        height: calc(52px + env(safe-area-inset-top, 0px));
     }
 
-    .logo {
-        height: 1.25rem;
+    .mobileTopBarLogoImg {
+        height: 1.125rem;
     }
 
-    .bottomNav {
-        height: calc(56px + env(safe-area-inset-bottom, 0px));
+    .mobileTopBarMenu {
+        width: 2rem;
+        height: 2rem;
     }
 
-    .bottomNavIcon,
-    .bottomNavIcon svg {
+    .mobileTopBarAction {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .mobileTopBarAction svg {
         width: 20px;
         height: 20px;
-    }
-
-    .bottomNavLabel {
-        font-size: 0.5625rem;
     }
 
     .mobileMenuDrawer {

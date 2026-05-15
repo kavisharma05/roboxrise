@@ -5,22 +5,22 @@ import styles from "./Testimonials.module.css";
 
 const testimonials = [
     {
-        name: "Priya M.",
-        role: "STEM Program Lead, Partner Institution",
-        text: "RoboxRise helped us move from theory-heavy lessons to practical robotics projects that students can build and iterate in class.",
-        initials: "PM",
+        name: "Allendale Machinery Systems",
+        role: "CNC & Automation Solutions",
+        text: "Allendale Machinery Systems, a CNC and automation solutions provider working with Haas Automation, collaborates with WLKATA to support classroom and workforce training solutions.",
+        initials: "AMS",
     },
     {
-        name: "Rahul K.",
-        role: "Lab Coordinator, Engineering College",
-        text: "The modular kits, documentation, and faculty support made deployment straightforward across multiple student batches.",
-        initials: "RK",
+        name: "Bergen County Academies",
+        role: "Secondary Education Partner",
+        text: "BCA Bergen County Academies, the No. 1-ranked New Jersey public high school, partners with WLKATA to offer on-site, hands-on robotics internships.",
+        initials: "BCA",
     },
     {
-        name: "Anita S.",
-        role: "Robotics Faculty, K-12 Network",
-        text: "Our learners now get hands-on exposure to robotics workflows that map directly to modern automation careers.",
-        initials: "AS",
+        name: "NTREX",
+        role: "Industrial Automation Supplier",
+        text: "NTREX, a South Korea-based industrial automation and robotics component supplier, works with WLKATA to expand and promote robotics and automation solutions throughout Asian markets.",
+        initials: "NX",
     },
 ];
 
