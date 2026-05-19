@@ -33,25 +33,27 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     "educational robot",
   ];
 
+  const metaDescription = (product as any).shortDescription || (product as any).description?.split('.')[0] || product.usps.slice(0, 3).join(". ") + ".";
+
   return {
     // Use just the product name — layout template appends "| RoboxRise"
     title: product.name,
-    description: product.usps.slice(0, 3).join(". ") + ".",
+    description: metaDescription,
     keywords: productKeywords,
     alternates: {
       canonical: `https://roboxrise.in/products/${product.slug}`,
     },
     openGraph: {
       title: `${product.name} | RoboxRise`,
-      description: product.usps.slice(0, 3).join(". ") + ".",
-      type: "website",
+      description: metaDescription,
+      type: "product" as any,
       url: `https://roboxrise.in/products/${product.slug}`,
       images: [{ url: product.images[0].src, alt: product.images[0].alt }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${product.name} | RoboxRise`,
-      description: product.usps[0] || product.usps.slice(0, 3).join(". "),
+      description: metaDescription,
       images: [product.images[0].src],
     },
   };

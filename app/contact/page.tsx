@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
     title: "Contact RoboxRise | Get a Demo or Quote",
     description:
-        "Contact RoboxRise for product demos, bulk pricing, curriculum partnerships, and institutional robotics deployment support.",
+        "Reach the RoboxRise team for product demos, institutional pricing, and curriculum support. We respond within 24 hours.",
     keywords: [
         "contact RoboxRise",
         "robotics demo india",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Contact RoboxRise | Get a Demo or Quote",
         description:
-            "Contact RoboxRise for product demos, bulk pricing, curriculum partnerships, and institutional robotics deployment support.",
+            "Reach the RoboxRise team for product demos, institutional pricing, and curriculum support. We respond within 24 hours.",
         url: "https://roboxrise.in/contact",
         images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "RoboxRise", type: "image/jpeg" }],
     },

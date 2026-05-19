@@ -36,6 +36,12 @@ export const metadata: Metadata = {
         type: "website",
         images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "RoboxRise — Robotics & AI Kits for Schools and Universities", type: "image/jpeg" }],
     },
+    twitter: {
+        card: "summary_large_image",
+        title: "Robotics & AI Kits for Schools & Universities | RoboxRise",
+        description: "Build real robots and teach real AI with RoboxRise classroom-ready kits, mini factory cells, and educator support programs.",
+        images: ["/og-image.jpg"],
+    },
 };
 
 export default function Home() {
