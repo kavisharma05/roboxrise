@@ -1,0 +1,160 @@
+import type { Metadata, Viewport } from "next";
+import { Montserrat, Inter } from "next/font/google";
+import "./globals.css";
+import "@/bones/registry";
+import RoboxRiseIntroLoader from "@/components/RoboxRiseIntroLoader";
+import SmoothScroll from "@/components/SmoothScroll";
+import Providers from "@/components/Providers";
+
+const montserrat = Montserrat({
+    subsets: ["latin"],
+    weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+    variable: "--font-montserrat",
+    display: "swap",
+});
+
+const inter = Inter({
+    subsets: ["latin"],
+    weight: ["300", "400", "500", "600", "700"],
+    variable: "--font-inter",
+    display: "swap",
+});
+
+export const metadata: Metadata = {
+    metadataBase: new URL("https://roboxrise.in"),
+    title: {
+        default: "Robotics & AI Kits for Schools & Universities | RoboxRise",
+        template: "%s | RoboxRise",
+    },
+    description:
+        "RoboxRise delivers industrial-grade robotic arms and AI kits designed for universities, schools, and labs. Trusted by 100+ institutions.",
+    keywords: [
+        "robotics kits india",
+        "educational robotic arm",
+        "AI STEM education",
+        "ROS2 robotics",
+        "school robotics lab",
+        "STEM lab equipment",
+        "robotic arm india",
+        "robotics for universities",
+    ],
+    authors: [{ name: "RoboxRise" }],
+    creator: "RoboxRise",
+    publisher: "RoboxRise",
+    icons: {
+        icon: [
+            { url: "/icon", sizes: "32x32", type: "image/png" },
+            { url: "/roboxriselogo.svg", type: "image/svg+xml" },
+        ],
+        apple: [{ url: "/apple-icon", sizes: "180x180", type: "image/png" }],
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
+    alternates: {
+        canonical: "/",
+        languages: {
+            en: "/",
+            "en-IN": "/",
+        },
+    },
+    openGraph: {
+        title: "RoboxRise | Robotics & AI Kits for Schools & Universities",
+        description:
+            "Hands-on robotics kits with curriculum, certification, and support for classrooms, labs, and future engineers.",
+        type: "website",
+        url: "https://roboxrise.in",
+        siteName: "RoboxRise",
+        images: [
+            {
+                url: "/og-image.jpg",
+                width: 1200,
+                height: 630,
+                alt: "RoboxRise — Robotics & AI Kits for Schools and Universities",
+                type: "image/jpeg",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "RoboxRise | Robotics Education Platform",
+        description:
+            "Industrial-grade robotic arms and AI kits for STEM classrooms, labs, and universities.",
+        images: ["/og-image.jpg"],
+    },
+    other: {
+        "geo.region": "IN",
+        "geo.placename": "India",
+    },
+};
+
+export const viewport: Viewport = {
+    width: "device-width",
+    initialScale: 1,
+};
+
+export default function RootLayout({
+    children,
+}: Readonly<{
+    children: React.ReactNode;
+}>) {
+    const organizationSchema = {
+        "@context": "https://schema.org",
+        "@type": ["Organization", "EducationalOrganization"],
+        name: "RoboxRise",
+        legalName: "RoboxRise AI Lab Solutions (A unit of Raghavendar Tech Excellence Pvt. Ltd.)",
+        url: "https://roboxrise.in",
+        logo: "https://roboxrise.in/roboxriselogo.svg",
+        description:
+            "Industrial-grade robotic arms and AI kits for universities, schools, and STEM labs.",
+        contactPoint: {
+            "@type": "ContactPoint",
+            telephone: "+91-81200-07474",
+            email: "sales@roboxrise.in",
+            contactType: "sales",
+            areaServed: "IN",
+            availableLanguage: "English",
+        },
+        address: {
+            "@type": "PostalAddress",
+            streetAddress: "156, Krishna Market, Near Parmanu Nagar, CAT Road",
+            addressLocality: "Indore",
+            addressRegion: "Madhya Pradesh",
+            postalCode: "452012",
+            addressCountry: "IN",
+        },
+        areaServed: "IN",
+        sameAs: [],
+    };
+
+    return (
+        <html
+            lang="en"
+            className={`${montserrat.variable} ${inter.variable}`}
+            suppressHydrationWarning
+        >
+            <head>
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `(function(){try{var k='roboxrise-intro-loader-seen';if(!sessionStorage.getItem(k))document.documentElement.classList.add('intro-loader-active');}catch(e){}})();`,
+                    }}
+                />
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(organizationSchema),
+                    }}
+                />
+            </head>
+            <body>
+                <RoboxRiseIntroLoader />
+                <Providers>
+                    <SmoothScroll>
+                        <div className="page-wrapper is-main">{children}</div>
+                    </SmoothScroll>
+                </Providers>
+            </body>
+        </html>
+    );
+}
