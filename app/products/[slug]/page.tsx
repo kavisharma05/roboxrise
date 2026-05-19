@@ -24,18 +24,35 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const product = getProductBySlug(params.slug) ?? allProducts[0];
+  const productKeywords = [
+    product.name,
+    product.category,
+    product.subcategory,
+    "robotic arm india",
+    "ROS2 robot kit",
+    "educational robot",
+  ];
 
   return {
-    title: `${product.name} | RoboxRise`,
+    // Use just the product name — layout template appends "| RoboxRise"
+    title: product.name,
     description: product.usps.slice(0, 3).join(". ") + ".",
+    keywords: productKeywords,
+    alternates: {
+      canonical: `https://roboxrise.in/products/${product.slug}`,
+    },
     openGraph: {
-      title: product.name,
+      title: `${product.name} | RoboxRise`,
       description: product.usps.slice(0, 3).join(". ") + ".",
       type: "website",
+      url: `https://roboxrise.in/products/${product.slug}`,
       images: [{ url: product.images[0].src, alt: product.images[0].alt }],
     },
-    alternates: {
-      canonical: `/products/${product.slug}`,
+    twitter: {
+      card: "summary_large_image",
+      title: `${product.name} | RoboxRise`,
+      description: product.usps[0] || product.usps.slice(0, 3).join(". "),
+      images: [product.images[0].src],
     },
   };
 }
@@ -61,7 +78,33 @@ export default function ProductPage({ params }: PageProps) {
           ? "https://schema.org/InStock"
           : "https://schema.org/OutOfStock",
       itemCondition: "https://schema.org/NewCondition",
+      seller: { "@type": "Organization", name: "RoboxRise" },
     },
+  };
+
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://roboxrise.in/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Products",
+        item: "https://roboxrise.in/products",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: product.name,
+        item: `https://roboxrise.in/products/${product.slug}`,
+      },
+    ],
   };
 
   return (
@@ -69,6 +112,10 @@ export default function ProductPage({ params }: PageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       <Navbar theme="light" />
       <main>

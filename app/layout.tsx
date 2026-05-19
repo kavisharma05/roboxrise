@@ -23,19 +23,20 @@ const inter = Inter({
 export const metadata: Metadata = {
     metadataBase: new URL("https://roboxrise.in"),
     title: {
-        default: "RoboxRise | Robotics Kits for Universities & Schools | AI STEM Education",
+        default: "Robotics & AI Kits for Schools & Universities | RoboxRise",
         template: "%s | RoboxRise",
     },
     description:
         "RoboxRise delivers industrial-grade robotic arms and AI kits designed for universities, schools, and labs. Trusted by 100+ institutions.",
     keywords: [
-        "robotics kits for universities",
+        "robotics kits india",
         "educational robotic arm",
         "AI STEM education",
         "ROS2 robotics",
         "school robotics lab",
         "STEM lab equipment",
-        "robotic arm India",
+        "robotic arm india",
+        "robotics for universities",
     ],
     authors: [{ name: "RoboxRise" }],
     creator: "RoboxRise",
@@ -67,10 +68,11 @@ export const metadata: Metadata = {
         siteName: "RoboxRise",
         images: [
             {
-                url: "/roboxriselogo.svg",
+                url: "/og-image.jpg",
                 width: 1200,
                 height: 630,
-                alt: "RoboxRise",
+                alt: "RoboxRise — Robotics & AI Kits for Schools and Universities",
+                type: "image/jpeg",
             },
         ],
     },
@@ -79,7 +81,7 @@ export const metadata: Metadata = {
         title: "RoboxRise | Robotics Education Platform",
         description:
             "Industrial-grade robotic arms and AI kits for STEM classrooms, labs, and universities.",
-        images: ["/roboxriselogo.svg"],
+        images: ["/og-image.jpg"],
     },
     other: {
         "geo.region": "IN",
@@ -101,11 +103,29 @@ export default function RootLayout({
         "@context": "https://schema.org",
         "@type": ["Organization", "EducationalOrganization"],
         name: "RoboxRise",
+        legalName: "RoboxRise AI Lab Solutions (A unit of Raghavendar Tech Excellence Pvt. Ltd.)",
         url: "https://roboxrise.in",
         logo: "https://roboxrise.in/roboxriselogo.svg",
         description:
             "Industrial-grade robotic arms and AI kits for universities, schools, and STEM labs.",
+        contactPoint: {
+            "@type": "ContactPoint",
+            telephone: "+91-81200-07474",
+            email: "sales@roboxrise.in",
+            contactType: "sales",
+            areaServed: "IN",
+            availableLanguage: "English",
+        },
+        address: {
+            "@type": "PostalAddress",
+            streetAddress: "156, Krishna Market, Near Parmanu Nagar, CAT Road",
+            addressLocality: "Indore",
+            addressRegion: "Madhya Pradesh",
+            postalCode: "452012",
+            addressCountry: "IN",
+        },
         areaServed: "IN",
+        sameAs: [],
     };
 
     return (

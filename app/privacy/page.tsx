@@ -5,9 +5,17 @@ import PrivacyPage from "@/components/PrivacyPage";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-    title: "Privacy Policy",
+    title: "Privacy Policy | RoboxRise",
     description:
         "Read RoboxRise privacy practices, including data collection, usage, security, and your rights as a customer or learner.",
+    alternates: {
+        canonical: "https://roboxrise.in/privacy",
+    },
+    openGraph: {
+        title: "Privacy Policy | RoboxRise",
+        url: "https://roboxrise.in/privacy",
+        images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "RoboxRise", type: "image/jpeg" }],
+    },
 };
 
 export default function Privacy() {

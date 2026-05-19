@@ -5,9 +5,25 @@ import ContactPage from "@/components/ContactPage";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-    title: "Contact",
+    title: "Contact RoboxRise | Get a Demo or Quote",
     description:
-        "Contact RoboxRise for demos, pricing, curriculum partnerships, and institutional robotics deployment support.",
+        "Contact RoboxRise for product demos, bulk pricing, curriculum partnerships, and institutional robotics deployment support.",
+    keywords: [
+        "contact RoboxRise",
+        "robotics demo india",
+        "buy robotics kit inquiry",
+        "institutional robotics pricing",
+    ],
+    alternates: {
+        canonical: "https://roboxrise.in/contact",
+    },
+    openGraph: {
+        title: "Contact RoboxRise | Get a Demo or Quote",
+        description:
+            "Contact RoboxRise for product demos, bulk pricing, curriculum partnerships, and institutional robotics deployment support.",
+        url: "https://roboxrise.in/contact",
+        images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "RoboxRise", type: "image/jpeg" }],
+    },
 };
 
 export default function Contact() {
