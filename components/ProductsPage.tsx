@@ -65,7 +65,6 @@ const PRODUCT_SEQUENCE: string[] = [
     "world-builder-set",
     "brave-edu-kit-biped-robot-sim2real",
     "march-x-pro-lidar-kit-robotic-dog",
-    "mt4-arduino-adventure-project-bundle",
     "automotive-manufacturing-simulation-production-line",
 ];
 

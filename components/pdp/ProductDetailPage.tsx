@@ -2,6 +2,8 @@
 
 import { useRef, useMemo } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useCart } from "@/context/CartContext";
 import type { Product } from "@/lib/product-data";
 import { allProducts, formatProductPriceDisplay } from "@/lib/product-data";
 import ImageGallery from "./ImageGallery";
@@ -17,6 +19,23 @@ interface Props {
 
 export default function ProductDetailPage({ product, loading }: Props) {
   const addToCartRef = useRef<HTMLButtonElement>(null);
+  const router = useRouter();
+  const { addToCart } = useCart();
+
+  const handleAddToCart = (e: React.MouseEvent, p: Product) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (p.price === 0 && !p.showZeroRupee) return;
+    addToCart({
+      id: p.slug,
+      name: p.name,
+      image: p.images[0]?.src || "",
+      price: p.price,
+      priceRange: p.priceRange,
+      href: `/products/${p.slug}`,
+    });
+    router.push("/cart");
+  };
 
   const hasSale =
     !product.priceRange &&
@@ -124,8 +143,13 @@ export default function ProductDetailPage({ product, loading }: Props) {
                         {p.subcategory}
                       </span>
                       <h3 className={styles.relatedName}>
-                        {p.name.split("–")[0].split("_")[0].trim()}
+                        {p.name}
                       </h3>
+                      <div className={styles.relatedDesc}>
+                        {p.usps[0] || p.subcategory}
+                      </div>
+                    </div>
+                    <div className={styles.relatedFooter}>
                       <div className={styles.relatedPriceRow}>
                         {p.price === 0 && !p.showZeroRupee ? (
                           <span className={styles.relatedContactPrice}>
@@ -146,6 +170,12 @@ export default function ProductDetailPage({ product, loading }: Props) {
                           </>
                         )}
                       </div>
+                      <button
+                        className={styles.relatedAddToCartBtn}
+                        onClick={(e) => handleAddToCart(e, p)}
+                      >
+                        Add to Cart
+                      </button>
                     </div>
                   </Link>
                 ))}
