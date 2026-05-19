@@ -68,10 +68,6 @@ export default function ProductDetailPage({ product, loading }: Props) {
               <span className={styles.breadcrumbSep} aria-hidden="true">
                 <ChevronIcon />
               </span>
-              <Link href="/products" className={styles.breadcrumbLink}>{product.category}</Link>
-              <span className={styles.breadcrumbSep} aria-hidden="true">
-                <ChevronIcon />
-              </span>
               <span className={styles.breadcrumbCurrent}>
                 {product.name.split("–")[0].split("_")[0].trim()}
               </span>

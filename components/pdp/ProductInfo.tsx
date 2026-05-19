@@ -244,6 +244,12 @@ export default function ProductInfo({
         </button>
       </div>
 
+      {/* FIX 11 — Refund policy notice */}
+      <p className={styles.pdpNote}>
+        ⚠️ Note: All sales are final. RoboxRise does not accept returns or offer refunds on robotics kits.
+        For questions, contact <a href="mailto:sales@roboxrise.in" style={{ color: "inherit" }}>sales@roboxrise.in</a>.
+      </p>
+
       {/* 12. SKU */}
       <div className={styles.metaRow}>
         <span className={styles.skuText}>SKU: {product.sku}</span>

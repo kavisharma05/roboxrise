@@ -40,7 +40,9 @@ const footerLinks = {
         { label: "Haro380 Core Kit", href: "/products/haro380-core-kit" },
         { label: "Mirobot Advanced Kit", href: "/products/mirobot-advanced-kit" },
     ],
+    // FIX 17 — Help Center added to support column
     support: [
+        { label: "Help Center", href: "/help" },
         { label: "Contact", href: "/contact" },
         { label: "Privacy Policy", href: "/privacy" },
         { label: "Terms of Service", href: "/terms" },
@@ -61,7 +63,7 @@ export default function Footer() {
                                 <div className={styles.footerBrand}>
                                     <img
                                         src="/roboxriselogoinvert.svg"
-                                        alt="RoboxRise"
+                                        alt="RoboxRise — Robotics & AI Kits for Schools and Universities"
                                         className={styles.brandLogo}
                                     />
                                     <p className={styles.brandDescription}>
@@ -110,19 +112,21 @@ export default function Footer() {
                             <p className={styles.copyright}>
                                 © 2026 RoboxRise. All rights reserved.
                             </p>
+                            {/* FIX 9 — Social icons rendered as non-interactive spans until real URLs are provided */}
+                            {/* TODO: Add real social URLs and convert back to <a> tags */}
                             <div className={styles.socialLinks}>
-                                <a href="#" className={styles.socialLink} aria-label="Instagram">
+                                <span className={styles.socialLink} aria-label="Instagram">
                                     <InstagramIcon />
-                                </a>
-                                <a href="#" className={styles.socialLink} aria-label="Facebook">
+                                </span>
+                                <span className={styles.socialLink} aria-label="Facebook">
                                     <FacebookIcon />
-                                </a>
-                                <a href="#" className={styles.socialLink} aria-label="LinkedIn">
+                                </span>
+                                <span className={styles.socialLink} aria-label="LinkedIn">
                                     <LinkedInIcon />
-                                </a>
-                                <a href="#" className={styles.socialLink} aria-label="Twitter">
+                                </span>
+                                <span className={styles.socialLink} aria-label="Twitter / X">
                                     <TwitterIcon />
-                                </a>
+                                </span>
                             </div>
                         </div>
                     </div>

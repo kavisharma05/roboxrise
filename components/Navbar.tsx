@@ -115,6 +115,8 @@ export default function Navbar({ theme = "default" }: NavbarProps) {
                             <Link href="/products" className={styles.dropLink}>Products</Link>
                             <Link href="/about" className={styles.dropLink}>About</Link>
                             <Link href="/contact" className={styles.dropLink}>Contact</Link>
+                            {/* FIX 17 — Help Center added to nav */}
+                            <Link href="/help" className={styles.dropLink}>Help Center</Link>
                         </div>
                     </div>
 
@@ -172,6 +174,8 @@ export default function Navbar({ theme = "default" }: NavbarProps) {
                             <Link href="/products" className={styles.navLinks}>Products</Link>
                             <Link href="/about" className={styles.navLinks}>About</Link>
                             <Link href="/contact" className={styles.navLinks}>Contact</Link>
+                            {/* FIX 17 — Help Center added to floating nav */}
+                            <Link href="/help" className={styles.navLinks}>Help Center</Link>
                         </div>
                     </nav>
                     <div className={`${styles.floatingRightGroup}`}>
@@ -275,6 +279,10 @@ export default function Navbar({ theme = "default" }: NavbarProps) {
                         </Link>
                         <Link href="/contact" className={drawerLinkClass("/contact")}>
                             <ContactIcon /> Contact
+                        </Link>
+                        {/* FIX 17 — Help Center in mobile drawer */}
+                        <Link href="/help" className={drawerLinkClass("/help")}>
+                            <InfoIcon /> Help Center
                         </Link>
                     </div>
 

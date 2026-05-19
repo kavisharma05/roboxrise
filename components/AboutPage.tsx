@@ -70,7 +70,7 @@ const learningEcosystem = [
 const credibilityStats = [
     { label: "Universities", value: "100+" },
     { label: "Countries", value: "60+" },
-    { label: "Global Platform", value: "WLKATA Robotics" },
+    { label: "Platform Partner", value: "WLKATA Robotics" },
 ];
 
 export default function AboutPage() {
@@ -117,7 +117,7 @@ export default function AboutPage() {
                                 </ScrollAnimation>
                                 <ScrollAnimation>
                                     <h2 className={styles.sectionHeading}>
-                                        Collaboration & Credibility - WLKATA Robotics
+                                        Powered by WLKATA Robotics
                                     </h2>
                                 </ScrollAnimation>
                                 <ScrollAnimation>
@@ -131,7 +131,7 @@ export default function AboutPage() {
                                 </ScrollAnimation>
                                 <ScrollAnimation>
                                     <p className={styles.sectionBody}>
-                                        Leading institutions such as the University of Michigan, Imperial
+                                        WLKATA partner institutions including the University of Michigan, Imperial
                                         College London, and TU Delft have adopted WLKATA systems for
                                         robotics and AI education. Unlike traditional industrial robot
                                         manufacturers, WLKATA is designed for education-first flexibility and
@@ -161,7 +161,7 @@ export default function AboutPage() {
                                     </div>
                                     <div className={styles.credibilityInstitutions}>
                                         <span className={styles.credibilityInstitutionsLabel}>
-                                            Adopted by leading institutions:
+                                            WLKATA partner institutions include:
                                         </span>
                                         <ul className={styles.credibilityInstitutionList}>
                                             <li>University of Michigan</li>
