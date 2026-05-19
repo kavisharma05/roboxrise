@@ -69,9 +69,15 @@ export default function Hero() {
                     />
                     {/* Desktop Video - hidden on tablet and below */}
                     <div className={styles.hideTablet}>
-                        <video autoPlay muted loop playsInline className={styles.imageMain}>
-                            <source src={HERO_BG_VIDEO} type="video/mp4" />
-                        </video>
+                        <video
+                            src="https://res.cloudinary.com/dixayfqq8/video/upload/v1770155966/hero-roborise_ukt8hi.mp4"
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            aria-hidden="true"
+                            className={styles.imageMain}
+                        />
                     </div>
                 </div>
                 {/* Bottom gradient overlay for form readability */}
