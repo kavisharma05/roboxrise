@@ -1,131 +1,44 @@
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
 import { Skeleton } from "@/components/BoneyardSkeleton";
 import Navbar from "@/components/Navbar";
+import ProductsPage from "@/components/ProductsPage";
 import Footer from "@/components/Footer";
-import { allProducts, getProductBySlug } from "@/lib/product-data";
 
-const ProductDetailPage = dynamic(
-  () => import("@/components/pdp/ProductDetailPage"),
-  { ssr: true },
-);
-
-export function generateStaticParams() {
-  /* Pre-render all known product pages at build time */
-  return allProducts.map((p) => ({ slug: p.slug }));
-}
-
-/* Allow pages with unknown slugs to be rendered on-demand */
-export const dynamicParams = true;
-
-interface PageProps {
-  params: { slug: string };
-}
-
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const product = getProductBySlug(params.slug) ?? allProducts[0];
-  const productKeywords = [
-    product.name,
-    product.category,
-    product.subcategory,
-    "robotic arm india",
-    "ROS2 robot kit",
-    "educational robot",
-  ];
-
-  const metaDescription = (product as any).shortDescription || (product as any).description?.split('.')[0] || product.usps.slice(0, 3).join(". ") + ".";
-
-  return {
-    // Use just the product name — layout template appends "| RoboxRise"
-    title: product.name,
-    description: metaDescription,
-    keywords: productKeywords,
+export const metadata: Metadata = {
+    title: "Educational Robotics Kits & Systems | RoboxRise",
+    description:
+        "Explore RoboxRise robotics kits, mini factory systems, AI modules, and classroom-ready automation learning platforms.",
+    keywords: [
+        "buy robotics kit india",
+        "educational robot arm price",
+        "6 axis robotic arm india",
+        "ROS2 robot kit",
+        "MATLAB robotics",
+        "industrial robot for education",
+        "STEM lab equipment india",
+    ],
     alternates: {
-      canonical: `https://roboxrise.in/products/${product.slug}`,
+        canonical: "https://roboxrise.in/products",
     },
     openGraph: {
-      title: `${product.name} | RoboxRise`,
-      description: metaDescription,
-      type: "product" as any,
-      url: `https://roboxrise.in/products/${product.slug}`,
-      images: [{ url: product.images[0].src, alt: product.images[0].alt }],
+        title: "Educational Robotics Kits & Systems | RoboxRise",
+        description:
+            "Explore RoboxRise robotics kits, mini factory systems, AI modules, and classroom-ready automation learning platforms.",
+        url: "https://roboxrise.in/products",
+        images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "RoboxRise", type: "image/jpeg" }],
     },
-    twitter: {
-      card: "summary_large_image",
-      title: `${product.name} | RoboxRise`,
-      description: metaDescription,
-      images: [product.images[0].src],
-    },
-  };
-}
+};
 
-export default function ProductPage({ params }: PageProps) {
-  const product = getProductBySlug(params.slug) ?? allProducts[0];
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: product.name,
-    image: product.images.map((img: { src: string }) => img.src),
-    description: product.usps.join(". "),
-    sku: product.sku,
-    brand: { "@type": "Brand", name: "RoboxRise" },
-    offers: {
-      "@type": "Offer",
-      url: `https://roboxrise.in/products/${product.slug}`,
-      priceCurrency: product.currency,
-      price: product.price,
-      availability:
-        product.stock > 0
-          ? "https://schema.org/InStock"
-          : "https://schema.org/OutOfStock",
-      itemCondition: "https://schema.org/NewCondition",
-      seller: { "@type": "Organization", name: "RoboxRise" },
-    },
-  };
-
-  const breadcrumbLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://roboxrise.in/",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Products",
-        item: "https://roboxrise.in/products",
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: product.name,
-        item: `https://roboxrise.in/products/${product.slug}`,
-      },
-    ],
-  };
-
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
-      />
-      <Navbar theme="light" />
-      <main>
-        <Skeleton name="product-detail" loading={false}>
-          <ProductDetailPage product={product} />
-        </Skeleton>
-      </main>
-      <Footer />
-    </>
-  );
+export default function Products() {
+    return (
+        <>
+            <Navbar />
+            <main className="main-wrapper">
+                <Skeleton name="products-page" loading={false}>
+                    <ProductsPage />
+                </Skeleton>
+            </main>
+            <Footer />
+        </>
+    );
 }
