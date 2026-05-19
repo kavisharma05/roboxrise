@@ -4,12 +4,18 @@ import { NextResponse, type NextRequest } from "next/server";
 const AUTH_PREFIXES = ["/account", "/orders", "/admin"];
 
 export async function middleware(request: NextRequest) {
+  const host = request.headers.get("host") || "";
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
   // Avoid hard-crashing middleware in environments with missing Supabase vars.
   if (!supabaseUrl || !supabaseAnonKey) {
-    return NextResponse.next({ request });
+    const res = NextResponse.next({ request });
+    // FIX 5b — Block Vercel preview subdomain from being indexed
+    if (host.includes("vercel.app")) {
+      res.headers.set("X-Robots-Tag", "noindex, nofollow");
+    }
+    return res;
   }
 
   let supabaseResponse = NextResponse.next({ request });
@@ -63,6 +69,11 @@ export async function middleware(request: NextRequest) {
       url.pathname = "/";
       return NextResponse.redirect(url);
     }
+  }
+
+  // FIX 5b — Block Vercel preview subdomain from being indexed
+  if (host.includes("vercel.app")) {
+    supabaseResponse.headers.set("X-Robots-Tag", "noindex, nofollow");
   }
 
   return supabaseResponse;
