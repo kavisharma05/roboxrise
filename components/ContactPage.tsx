@@ -106,7 +106,7 @@ export default function ContactPage() {
                                                 id="cp-email"
                                                 name="email"
                                                 className="form_input"
-                                                placeholder="gunalan@r-tech.in"
+                                                placeholder="sales@roboxrise.in"
                                                 required
                                             />
                                             <ValidationError
@@ -178,8 +178,14 @@ export default function ContactPage() {
                                         </button>
 
                                         {Boolean(state.errors) && (
-                                            <div className={styles.successMsg}>
-                                                There was an issue sending your message. Please review the fields and try again.
+                                            <div className={styles.successMsg} style={{ flexDirection: "column", alignItems: "flex-start", gap: "8px" }}>
+                                                <div>There was an issue sending your message. Please review the fields and try again.</div>
+                                                <div style={{ marginTop: "8px" }}>
+                                                    <strong>While our form is being restored, reach us directly:</strong><br/>
+                                                    📧 <a href="mailto:sales@roboxrise.in" style={{ color: "inherit" }}>sales@roboxrise.in</a><br/>
+                                                    📞 <a href="tel:8120007474" style={{ color: "inherit" }}>+91 81200 07474</a><br/>
+                                                    💬 WhatsApp: <a href="https://wa.me/918120007474" style={{ color: "inherit" }}>wa.me/918120007474</a>
+                                                </div>
                                             </div>
                                         )}
 
@@ -247,8 +253,8 @@ export default function ContactPage() {
                                         </div>
                                         <div className={styles.infoContent}>
                                             <span className={styles.infoLabel}>Email Us</span>
-                                            <a href="mailto:gunalan@r-tech.in" className={styles.infoValue}>
-                                                gunalan@r-tech.in
+                                            <a href="mailto:sales@roboxrise.in" className={styles.infoValue}>
+                                                sales@roboxrise.in
                                             </a>
                                             <span className={styles.infoValueSecondary}>
                                                 We reply within 24 hours
